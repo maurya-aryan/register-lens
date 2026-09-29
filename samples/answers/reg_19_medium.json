@@ -1,0 +1,149 @@
+{
+ "file": "reg_19_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-20",
+ "rows": [
+  {
+   "med_code": "M027",
+   "written_name": "Omep",
+   "batch": "RN9305",
+   "expiry": "2027-02",
+   "opening": 3510,
+   "received": 0,
+   "issued": 130,
+   "closing": 3380
+  },
+  {
+   "med_code": "M015",
+   "written_name": "सल्बुटामोल",
+   "batch": "KR4427",
+   "expiry": "2027-05",
+   "opening": 1421,
+   "received": 0,
+   "issued": 57,
+   "closing": 1364
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "AE2941",
+   "expiry": "2027-10",
+   "opening": 884,
+   "received": 450,
+   "issued": 27,
+   "closing": 1307
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclo",
+   "batch": "BN7797",
+   "expiry": "2026-11",
+   "opening": 714,
+   "received": 0,
+   "issued": 112,
+   "closing": 602
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "AR8033",
+   "expiry": "2028-08",
+   "opening": 875,
+   "received": 0,
+   "issued": 46,
+   "closing": 829
+  },
+  {
+   "med_code": "M025",
+   "written_name": "PVP-I",
+   "batch": "WA5250",
+   "expiry": "2028-08",
+   "opening": 95,
+   "received": 31,
+   "issued": 7,
+   "closing": 119
+  },
+  {
+   "med_code": "M002",
+   "written_name": "Oral Rehydration Salts",
+   "batch": "NB9093",
+   "expiry": "2028-06",
+   "opening": 896,
+   "received": 0,
+   "issued": 41,
+   "closing": 855
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "KB7123",
+   "expiry": "2028-05",
+   "opening": 1369,
+   "received": 265,
+   "issued": 34,
+   "closing": 1600
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glim",
+   "batch": "KH6367",
+   "expiry": "2027-12",
+   "opening": 1114,
+   "received": 0,
+   "issued": 80,
+   "closing": 1034
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Metformin",
+   "batch": "MU5526",
+   "expiry": "2027-08",
+   "opening": 961,
+   "received": 0,
+   "issued": 205,
+   "closing": 756
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "RU2552",
+   "expiry": "2028-04",
+   "opening": 5658,
+   "received": 0,
+   "issued": 161,
+   "closing": 5497
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "HP5514",
+   "expiry": "2027-07",
+   "opening": 1659,
+   "received": 0,
+   "issued": 93,
+   "closing": 1566
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranit",
+   "batch": "EL3230",
+   "expiry": "2027-08",
+   "opening": 3188,
+   "received": 841,
+   "issued": 81,
+   "closing": 3948
+  },
+  {
+   "med_code": "M018",
+   "written_name": "जिंक",
+   "batch": "AM7354",
+   "expiry": "2028-05",
+   "opening": 1793,
+   "received": 790,
+   "issued": 69,
+   "closing": 2514
+  }
+ ]
+}

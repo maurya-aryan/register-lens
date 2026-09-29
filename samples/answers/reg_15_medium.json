@@ -1,0 +1,149 @@
+{
+ "file": "reg_15_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Haidergarh",
+ "phc_id": "P02",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M024",
+   "written_name": "लोसार्टन",
+   "batch": "RU5223",
+   "expiry": "2028-06",
+   "opening": 1642,
+   "received": 0,
+   "issued": 62,
+   "closing": 1580
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "TA7410",
+   "expiry": "2028-04",
+   "opening": 398,
+   "received": 230,
+   "issued": 28,
+   "closing": 600
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "EC8692",
+   "expiry": "2028-02",
+   "opening": 652,
+   "received": 0,
+   "issued": 68,
+   "closing": 584
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "UP9511",
+   "expiry": "2027-02",
+   "opening": 1790,
+   "received": 0,
+   "issued": 90,
+   "closing": 1700
+  },
+  {
+   "med_code": "M026",
+   "written_name": "CQ",
+   "batch": "ET8017",
+   "expiry": "2028-05",
+   "opening": 307,
+   "received": 0,
+   "issued": 17,
+   "closing": 290
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "JJ1188",
+   "expiry": "2027-04",
+   "opening": 1819,
+   "received": 0,
+   "issued": 86,
+   "closing": 1733
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metro",
+   "batch": "VL8192",
+   "expiry": "2027-04",
+   "opening": 2659,
+   "received": 1212,
+   "issued": 80,
+   "closing": 3791
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "VU8989",
+   "expiry": "2027-08",
+   "opening": 700,
+   "received": 0,
+   "issued": 52,
+   "closing": 648
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Atenolol",
+   "batch": "WJ8832",
+   "expiry": "2028-07",
+   "opening": 751,
+   "received": 0,
+   "issued": 79,
+   "closing": 672
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium",
+   "batch": "CE4012",
+   "expiry": "2028-06",
+   "opening": 4843,
+   "received": 0,
+   "issued": 97,
+   "closing": 4746
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Alben",
+   "batch": "VH7345",
+   "expiry": "2028-06",
+   "opening": 839,
+   "received": 0,
+   "issued": 22,
+   "closing": 817
+  },
+  {
+   "med_code": "M002",
+   "written_name": "ओआरएस",
+   "batch": "HK7126",
+   "expiry": "2028-04",
+   "opening": 1225,
+   "received": 0,
+   "issued": 30,
+   "closing": 1195
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "BA3694",
+   "expiry": "2028-06",
+   "opening": 187,
+   "received": 0,
+   "issued": 5,
+   "closing": 182
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc 20",
+   "batch": "RS6400",
+   "expiry": "2027-06",
+   "opening": 257,
+   "received": 0,
+   "issued": 41,
+   "closing": 216
+  }
+ ]
+}

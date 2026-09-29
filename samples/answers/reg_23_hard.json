@@ -1,0 +1,149 @@
+{
+ "file": "reg_23_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Suratganj",
+ "phc_id": "P08",
+ "page_date": "2026-09-26",
+ "rows": [
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "RU5881",
+   "expiry": "2027-02",
+   "opening": 641,
+   "received": 0,
+   "issued": 32,
+   "closing": 609
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "LH1974",
+   "expiry": "2027-05",
+   "opening": 1212,
+   "received": 0,
+   "issued": 44,
+   "closing": 1168
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "NE9589",
+   "expiry": "2027-03",
+   "opening": 880,
+   "received": 0,
+   "issued": 49,
+   "closing": 831
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "TE2886",
+   "expiry": "2027-04",
+   "opening": 1101,
+   "received": 1090,
+   "issued": 67,
+   "closing": 2124
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Metformin",
+   "batch": "HK8439",
+   "expiry": "2026-12",
+   "opening": 4553,
+   "received": 0,
+   "issued": 199,
+   "closing": 4354
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "BV7744",
+   "expiry": "2027-12",
+   "opening": 5624,
+   "received": 0,
+   "issued": 139,
+   "closing": 5485
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "CB1374",
+   "expiry": "2027-10",
+   "opening": 72,
+   "received": 92,
+   "issued": 5,
+   "closing": 159
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepride",
+   "batch": "UN9207",
+   "expiry": "2028-05",
+   "opening": 312,
+   "received": 0,
+   "issued": 46,
+   "closing": 266
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "RR1318",
+   "expiry": "2027-04",
+   "opening": 1747,
+   "received": 0,
+   "issued": 84,
+   "closing": 1663
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metrogyl",
+   "batch": "WA9443",
+   "expiry": "2028-05",
+   "opening": 2881,
+   "received": 0,
+   "issued": 75,
+   "closing": 2806
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron and Folic Acid",
+   "batch": "LR3580",
+   "expiry": "2028-07",
+   "opening": 1690,
+   "received": 0,
+   "issued": 214,
+   "closing": 1476
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vit A",
+   "batch": "RG9056",
+   "expiry": "2027-04",
+   "opening": 56,
+   "received": 0,
+   "issued": 5,
+   "closing": 51
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "RH8144",
+   "expiry": "2027-02",
+   "opening": 687,
+   "received": 0,
+   "issued": 33,
+   "closing": 654
+  },
+  {
+   "med_code": "M013",
+   "written_name": "रैनिटिडीन",
+   "batch": "ME3573",
+   "expiry": "2028-07",
+   "opening": 1352,
+   "received": 623,
+   "issued": 75,
+   "closing": 1900
+  }
+ ]
+}

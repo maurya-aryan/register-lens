@@ -1,0 +1,149 @@
+{
+ "file": "reg_25_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Dewa",
+ "phc_id": "P04",
+ "page_date": "2026-09-15",
+ "rows": [
+  {
+   "med_code": "M011",
+   "written_name": "Metronidazole",
+   "batch": "LB3885",
+   "expiry": "2027-06",
+   "opening": 2343,
+   "received": 0,
+   "issued": 77,
+   "closing": 2266
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc Sulphate",
+   "batch": "AA4882",
+   "expiry": "2027-10",
+   "opening": 1976,
+   "received": 0,
+   "issued": 60,
+   "closing": 1916
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Avil",
+   "batch": "VA3891",
+   "expiry": "2027-09",
+   "opening": 830,
+   "received": 1048,
+   "issued": 69,
+   "closing": 1809
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "KC4177",
+   "expiry": "2026-11",
+   "opening": 6350,
+   "received": 0,
+   "issued": 201,
+   "closing": 6149
+  },
+  {
+   "med_code": "M019",
+   "written_name": "विटामिन ए",
+   "batch": "RL4162",
+   "expiry": "2028-02",
+   "opening": 208,
+   "received": 0,
+   "issued": 8,
+   "closing": 200
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxycycline",
+   "batch": "MD9926",
+   "expiry": "2027-12",
+   "opening": 800,
+   "received": 0,
+   "issued": 47,
+   "closing": 753
+  },
+  {
+   "med_code": "M010",
+   "written_name": "एल्बेंडाजोल",
+   "batch": "WA2716",
+   "expiry": "2027-07",
+   "opening": 644,
+   "received": 180,
+   "issued": 41,
+   "closing": 783
+  },
+  {
+   "med_code": "M004",
+   "written_name": "एजिथ्रोमाइसिन",
+   "batch": "HS4831",
+   "expiry": "2027-05",
+   "opening": 323,
+   "received": 0,
+   "issued": 26,
+   "closing": 297
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "TK1066",
+   "expiry": "2027-12",
+   "opening": 273,
+   "received": 0,
+   "issued": 33,
+   "closing": 240
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibu",
+   "batch": "LD3713",
+   "expiry": "2028-07",
+   "opening": 2093,
+   "received": 0,
+   "issued": 67,
+   "closing": 2026
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "AJ7872",
+   "expiry": "2026-11",
+   "opening": 11242,
+   "received": 2074,
+   "issued": 244,
+   "closing": 13072
+  },
+  {
+   "med_code": "M009",
+   "written_name": "IFA",
+   "batch": "DD5376",
+   "expiry": "2027-04",
+   "opening": 5715,
+   "received": 0,
+   "issued": 191,
+   "closing": 5524
+  },
+  {
+   "med_code": "M002",
+   "written_name": "Oral Rehydration Salts",
+   "batch": "SM6265",
+   "expiry": "2028-06",
+   "opening": 1120,
+   "received": 0,
+   "issued": 31,
+   "closing": 1089
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "AA4441",
+   "expiry": "2027-03",
+   "opening": 4177,
+   "received": 1317,
+   "issued": 120,
+   "closing": 5374
+  }
+ ]
+}

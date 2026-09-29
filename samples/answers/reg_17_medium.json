@@ -1,0 +1,149 @@
+{
+ "file": "reg_17_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Suratganj",
+ "phc_id": "P08",
+ "page_date": "2026-09-29",
+ "rows": [
+  {
+   "med_code": "M028",
+   "written_name": "कोट्रिमोक्साजोल",
+   "batch": "ER4323",
+   "expiry": "2027-02",
+   "opening": 589,
+   "received": 0,
+   "issued": 56,
+   "closing": 533
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "DC8991",
+   "expiry": "2027-08",
+   "opening": 1717,
+   "received": 0,
+   "issued": 65,
+   "closing": 1652
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "UD7402",
+   "expiry": "2027-05",
+   "opening": 245,
+   "received": 0,
+   "issued": 36,
+   "closing": 209
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "ES5650",
+   "expiry": "2027-02",
+   "opening": 1290,
+   "received": 0,
+   "issued": 69,
+   "closing": 1221
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Cal 500",
+   "batch": "EM6212",
+   "expiry": "2026-12",
+   "opening": 1252,
+   "received": 0,
+   "issued": 135,
+   "closing": 1117
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "KM2934",
+   "expiry": "2028-04",
+   "opening": 2276,
+   "received": 0,
+   "issued": 80,
+   "closing": 2196
+  },
+  {
+   "med_code": "M019",
+   "written_name": "विटामिन ए",
+   "batch": "ML7122",
+   "expiry": "2028-07",
+   "opening": 151,
+   "received": 43,
+   "issued": 7,
+   "closing": 187
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "WU1995",
+   "expiry": "2028-02",
+   "opening": 1794,
+   "received": 0,
+   "issued": 85,
+   "closing": 1709
+  },
+  {
+   "med_code": "M009",
+   "written_name": "आयरन फोलिक",
+   "batch": "CJ3214",
+   "expiry": "2028-08",
+   "opening": 4812,
+   "received": 0,
+   "issued": 274,
+   "closing": 4538
+  },
+  {
+   "med_code": "M018",
+   "written_name": "जिंक",
+   "batch": "HJ4584",
+   "expiry": "2028-07",
+   "opening": 918,
+   "received": 0,
+   "issued": 33,
+   "closing": 885
+  },
+  {
+   "med_code": "M022",
+   "written_name": "डॉक्सीसाइक्लिन",
+   "batch": "BU7367",
+   "expiry": "2027-10",
+   "opening": 813,
+   "received": 0,
+   "issued": 47,
+   "closing": 766
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "KV4568",
+   "expiry": "2026-11",
+   "opening": 1556,
+   "received": 0,
+   "issued": 30,
+   "closing": 1526
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amox",
+   "batch": "VW7254",
+   "expiry": "2027-03",
+   "opening": 3030,
+   "received": 0,
+   "issued": 96,
+   "closing": 2934
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Atenolol",
+   "batch": "TW2954",
+   "expiry": "2028-01",
+   "opening": 3015,
+   "received": 1393,
+   "issued": 57,
+   "closing": 4351
+  }
+ ]
+}

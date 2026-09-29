@@ -1,0 +1,149 @@
+{
+ "file": "reg_21_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Banki",
+ "phc_id": "P09",
+ "page_date": "2026-09-23",
+ "rows": [
+  {
+   "med_code": "M022",
+   "written_name": "Doxycycline",
+   "batch": "RU2782",
+   "expiry": "2027-03",
+   "opening": 774,
+   "received": 0,
+   "issued": 27,
+   "closing": 747
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "SS1316",
+   "expiry": "2027-04",
+   "opening": 86,
+   "received": 59,
+   "issued": 4,
+   "closing": 141
+  },
+  {
+   "med_code": "M001",
+   "written_name": "PCM",
+   "batch": "CC2103",
+   "expiry": "2028-09",
+   "opening": 5728,
+   "received": 0,
+   "issued": 312,
+   "closing": 5416
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metronidazole",
+   "batch": "AG2973",
+   "expiry": "2027-08",
+   "opening": 2544,
+   "received": 0,
+   "issued": 71,
+   "closing": 2473
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "UM3134",
+   "expiry": "2027-04",
+   "opening": 1248,
+   "received": 0,
+   "issued": 36,
+   "closing": 1212
+  },
+  {
+   "med_code": "M026",
+   "written_name": "CQ",
+   "batch": "LT7021",
+   "expiry": "2028-06",
+   "opening": 887,
+   "received": 129,
+   "issued": 19,
+   "closing": 997
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Atenolol",
+   "batch": "UV2657",
+   "expiry": "2028-02",
+   "opening": 590,
+   "received": 0,
+   "issued": 57,
+   "closing": 533
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Cal 500",
+   "batch": "NB3743",
+   "expiry": "2028-04",
+   "opening": 3782,
+   "received": 0,
+   "issued": 155,
+   "closing": 3627
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "GK6958",
+   "expiry": "2026-11",
+   "opening": 873,
+   "received": 0,
+   "issued": 95,
+   "closing": 778
+  },
+  {
+   "med_code": "M012",
+   "written_name": "सिप्रोफ्लोक्सासिन",
+   "batch": "DH9671",
+   "expiry": "2027-02",
+   "opening": 765,
+   "received": 478,
+   "issued": 68,
+   "closing": 1175
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "KM9148",
+   "expiry": "2028-06",
+   "opening": 1070,
+   "received": 0,
+   "issued": 58,
+   "closing": 1012
+  },
+  {
+   "med_code": "M004",
+   "written_name": "एजिथ्रोमाइसिन",
+   "batch": "AR3897",
+   "expiry": "2028-04",
+   "opening": 1230,
+   "received": 510,
+   "issued": 32,
+   "closing": 1708
+  },
+  {
+   "med_code": "M028",
+   "written_name": "कोट्रिमोक्साजोल",
+   "batch": "RE1377",
+   "expiry": "2028-07",
+   "opening": 645,
+   "received": 0,
+   "issued": 52,
+   "closing": 593
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Met 500",
+   "batch": "BD2270",
+   "expiry": "2027-12",
+   "opening": 3097,
+   "received": 0,
+   "issued": 218,
+   "closing": 2879
+  }
+ ]
+}

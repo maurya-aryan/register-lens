@@ -1,0 +1,149 @@
+{
+ "file": "reg_16_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Siddhaur",
+ "phc_id": "P06",
+ "page_date": "2026-09-26",
+ "rows": [
+  {
+   "med_code": "M006",
+   "written_name": "Metformin",
+   "batch": "FG4836",
+   "expiry": "2028-01",
+   "opening": 2066,
+   "received": 0,
+   "issued": 90,
+   "closing": 1976
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "LM7167",
+   "expiry": "2027-08",
+   "opening": 65,
+   "received": 0,
+   "issued": 4,
+   "closing": 61
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "GK5869",
+   "expiry": "2027-04",
+   "opening": 642,
+   "received": 682,
+   "issued": 49,
+   "closing": 1275
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "HF3809",
+   "expiry": "2028-01",
+   "opening": 206,
+   "received": 336,
+   "issued": 31,
+   "closing": 511
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "AC8676",
+   "expiry": "2028-02",
+   "opening": 120,
+   "received": 262,
+   "issued": 30,
+   "closing": 352
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omep",
+   "batch": "SP3903",
+   "expiry": "2027-08",
+   "opening": 1475,
+   "received": 399,
+   "issued": 66,
+   "closing": 1808
+  },
+  {
+   "med_code": "M009",
+   "written_name": "IFA",
+   "batch": "HJ1767",
+   "expiry": "2027-09",
+   "opening": 3251,
+   "received": 0,
+   "issued": 127,
+   "closing": 3124
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "TW9065",
+   "expiry": "2028-04",
+   "opening": 1978,
+   "received": 0,
+   "issued": 41,
+   "closing": 1937
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "TF2022",
+   "expiry": "2028-09",
+   "opening": 241,
+   "received": 0,
+   "issued": 42,
+   "closing": 199
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Ciprofloxacin",
+   "batch": "KR5488",
+   "expiry": "2027-02",
+   "opening": 1351,
+   "received": 0,
+   "issued": 51,
+   "closing": 1300
+  },
+  {
+   "med_code": "M023",
+   "written_name": "ग्लिमेपिराइड",
+   "batch": "WF2470",
+   "expiry": "2027-05",
+   "opening": 1381,
+   "received": 0,
+   "issued": 48,
+   "closing": 1333
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "GT9704",
+   "expiry": "2028-07",
+   "opening": 3502,
+   "received": 0,
+   "issued": 85,
+   "closing": 3417
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc Sulphate",
+   "batch": "SF8354",
+   "expiry": "2027-10",
+   "opening": 210,
+   "received": 0,
+   "issued": 36,
+   "closing": 174
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "SM8215",
+   "expiry": "2026-12",
+   "opening": 2364,
+   "received": 0,
+   "issued": 90,
+   "closing": 2274
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "file": "reg_22_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Nindaura",
+ "phc_id": "P03",
+ "page_date": "2026-09-21",
+ "rows": [
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "CD4982",
+   "expiry": "2027-02",
+   "opening": 587,
+   "received": 0,
+   "issued": 27,
+   "closing": 560
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetrizine",
+   "batch": "MV8112",
+   "expiry": "2028-07",
+   "opening": 1000,
+   "received": 0,
+   "issued": 101,
+   "closing": 899
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranit",
+   "batch": "ET2381",
+   "expiry": "2027-08",
+   "opening": 978,
+   "received": 0,
+   "issued": 61,
+   "closing": 917
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxycycline",
+   "batch": "BC8731",
+   "expiry": "2028-03",
+   "opening": 808,
+   "received": 0,
+   "issued": 33,
+   "closing": 775
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "PE8784",
+   "expiry": "2026-11",
+   "opening": 17,
+   "received": 0,
+   "issued": 5,
+   "closing": 12
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "GS3966",
+   "expiry": "2027-07",
+   "opening": 440,
+   "received": 0,
+   "issued": 40,
+   "closing": 400
+  },
+  {
+   "med_code": "M002",
+   "written_name": "ओआरएस",
+   "batch": "TS1704",
+   "expiry": "2028-02",
+   "opening": 968,
+   "received": 0,
+   "issued": 29,
+   "closing": 939
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "FS9657",
+   "expiry": "2027-08",
+   "opening": 3122,
+   "received": 0,
+   "issued": 98,
+   "closing": 3024
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "DH1456",
+   "expiry": "2028-05",
+   "opening": 108,
+   "received": 0,
+   "issued": 5,
+   "closing": 103
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Met 500",
+   "batch": "ER1198",
+   "expiry": "2027-06",
+   "opening": 5590,
+   "received": 0,
+   "issued": 168,
+   "closing": 5422
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losar",
+   "batch": "GW5645",
+   "expiry": "2027-02",
+   "opening": 543,
+   "received": 0,
+   "issued": 41,
+   "closing": 502
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "FA2713",
+   "expiry": "2028-09",
+   "opening": 531,
+   "received": 0,
+   "issued": 69,
+   "closing": 462
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "SL5229",
+   "expiry": "2026-10",
+   "opening": 1339,
+   "received": 0,
+   "issued": 53,
+   "closing": 1286
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albend",
+   "batch": "PL2619",
+   "expiry": "2027-03",
+   "opening": 931,
+   "received": 0,
+   "issued": 30,
+   "closing": 901
+  }
+ ]
+}

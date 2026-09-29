@@ -1,0 +1,149 @@
+{
+ "file": "reg_30_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-21",
+ "rows": [
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "FB3645",
+   "expiry": "2027-11",
+   "opening": 5504,
+   "received": 0,
+   "issued": 291,
+   "closing": 5213
+  },
+  {
+   "med_code": "M025",
+   "written_name": "पोविडोन आयोडीन",
+   "batch": "BL1001",
+   "expiry": "2027-04",
+   "opening": 200,
+   "received": 37,
+   "issued": 6,
+   "closing": 231
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "RE7352",
+   "expiry": "2028-08",
+   "opening": 993,
+   "received": 0,
+   "issued": 31,
+   "closing": 962
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "KA8664",
+   "expiry": "2026-12",
+   "opening": 2533,
+   "received": 0,
+   "issued": 101,
+   "closing": 2432
+  },
+  {
+   "med_code": "M012",
+   "written_name": "सिप्रोफ्लोक्सासिन",
+   "batch": "WJ7433",
+   "expiry": "2027-10",
+   "opening": 2272,
+   "received": 0,
+   "issued": 81,
+   "closing": 2191
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "EV8630",
+   "expiry": "2028-06",
+   "opening": 4095,
+   "received": 0,
+   "issued": 104,
+   "closing": 3991
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "TG5668",
+   "expiry": "2027-02",
+   "opening": 421,
+   "received": 387,
+   "issued": 21,
+   "closing": 787
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "LK8850",
+   "expiry": "2027-10",
+   "opening": 349,
+   "received": 1134,
+   "issued": 52,
+   "closing": 1431
+  },
+  {
+   "med_code": "M002",
+   "written_name": "Oral Rehydration Salts",
+   "batch": "MM7944",
+   "expiry": "2028-08",
+   "opening": 1123,
+   "received": 0,
+   "issued": 61,
+   "closing": 1062
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "SS9100",
+   "expiry": "2027-05",
+   "opening": 2933,
+   "received": 0,
+   "issued": 99,
+   "closing": 2834
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "BK9372",
+   "expiry": "2027-06",
+   "opening": 2652,
+   "received": 0,
+   "issued": 108,
+   "closing": 2544
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Aten",
+   "batch": "SS7168",
+   "expiry": "2027-11",
+   "opening": 1613,
+   "received": 1882,
+   "issued": 119,
+   "closing": 3376
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "HJ5913",
+   "expiry": "2028-05",
+   "opening": 2554,
+   "received": 2445,
+   "issued": 159,
+   "closing": 4840
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc",
+   "batch": "HS1941",
+   "expiry": "2027-08",
+   "opening": 1302,
+   "received": 406,
+   "issued": 65,
+   "closing": 1643
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "file": "reg_06_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Siddhaur",
+ "phc_id": "P06",
+ "page_date": "2026-09-15",
+ "rows": [
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "TP4037",
+   "expiry": "2027-02",
+   "opening": 3676,
+   "received": 0,
+   "issued": 162,
+   "closing": 3514
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Alben",
+   "batch": "DG2065",
+   "expiry": "2027-12",
+   "opening": 813,
+   "received": 0,
+   "issued": 22,
+   "closing": 791
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Co-trim",
+   "batch": "CT2020",
+   "expiry": "2026-10",
+   "opening": 350,
+   "received": 0,
+   "issued": 40,
+   "closing": 310
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron Folic",
+   "batch": "CB8981",
+   "expiry": "2027-11",
+   "opening": 3750,
+   "received": 0,
+   "issued": 191,
+   "closing": 3559
+  },
+  {
+   "med_code": "M002",
+   "written_name": "O.R.S",
+   "batch": "PR3821",
+   "expiry": "2027-09",
+   "opening": 932,
+   "received": 0,
+   "issued": 20,
+   "closing": 912
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "CW9053",
+   "expiry": "2028-07",
+   "opening": 1441,
+   "received": 0,
+   "issued": 87,
+   "closing": 1354
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "VS3133",
+   "expiry": "2028-04",
+   "opening": 620,
+   "received": 0,
+   "issued": 14,
+   "closing": 606
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "CJ1109",
+   "expiry": "2027-11",
+   "opening": 456,
+   "received": 0,
+   "issued": 35,
+   "closing": 421
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "MJ2315",
+   "expiry": "2028-04",
+   "opening": 91,
+   "received": 52,
+   "issued": 3,
+   "closing": 140
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "NA6139",
+   "expiry": "2027-04",
+   "opening": 1309,
+   "received": 0,
+   "issued": 43,
+   "closing": 1266
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "AK3836",
+   "expiry": "2028-02",
+   "opening": 1060,
+   "received": 0,
+   "issued": 68,
+   "closing": 992
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc Sulphate",
+   "batch": "SL1837",
+   "expiry": "2027-06",
+   "opening": 650,
+   "received": 0,
+   "issued": 26,
+   "closing": 624
+  },
+  {
+   "med_code": "M013",
+   "written_name": "रैनिटिडीन",
+   "batch": "RF1727",
+   "expiry": "2027-04",
+   "opening": 354,
+   "received": 0,
+   "issued": 58,
+   "closing": 296
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbu",
+   "batch": "CG6322",
+   "expiry": "2028-05",
+   "opening": 444,
+   "received": 0,
+   "issued": 24,
+   "closing": 420
+  }
+ ]
+}

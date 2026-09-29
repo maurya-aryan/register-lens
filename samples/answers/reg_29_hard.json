@@ -1,0 +1,149 @@
+{
+ "file": "reg_29_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Ramnagar",
+ "phc_id": "P10",
+ "page_date": "2026-09-19",
+ "rows": [
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "JM2262",
+   "expiry": "2027-01",
+   "opening": 1823,
+   "received": 642,
+   "issued": 82,
+   "closing": 2383
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "BA9635",
+   "expiry": "2026-10",
+   "opening": 2648,
+   "received": 1312,
+   "issued": 67,
+   "closing": 3893
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbu",
+   "batch": "MF1864",
+   "expiry": "2028-07",
+   "opening": 1116,
+   "received": 0,
+   "issued": 42,
+   "closing": 1074
+  },
+  {
+   "med_code": "M023",
+   "written_name": "ग्लिमेपिराइड",
+   "batch": "BJ7778",
+   "expiry": "2028-04",
+   "opening": 2151,
+   "received": 0,
+   "issued": 60,
+   "closing": 2091
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "HB1767",
+   "expiry": "2027-02",
+   "opening": 1458,
+   "received": 0,
+   "issued": 47,
+   "closing": 1411
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "PJ6542",
+   "expiry": "2027-01",
+   "opening": 1712,
+   "received": 0,
+   "issued": 85,
+   "closing": 1627
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "RR5167",
+   "expiry": "2027-06",
+   "opening": 1093,
+   "received": 0,
+   "issued": 193,
+   "closing": 900
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Para",
+   "batch": "HH4839",
+   "expiry": "2028-01",
+   "opening": 8394,
+   "received": 0,
+   "issued": 326,
+   "closing": 8068
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron and Folic Acid",
+   "batch": "JD8132",
+   "expiry": "2027-09",
+   "opening": 5574,
+   "received": 0,
+   "issued": 185,
+   "closing": 5389
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "BV9084",
+   "expiry": "2028-08",
+   "opening": 1335,
+   "received": 0,
+   "issued": 49,
+   "closing": 1286
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vit A",
+   "batch": "FG7611",
+   "expiry": "2028-02",
+   "opening": 103,
+   "received": 37,
+   "issued": 4,
+   "closing": 136
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "DL3026",
+   "expiry": "2027-06",
+   "opening": 692,
+   "received": 0,
+   "issued": 58,
+   "closing": 634
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "BH9096",
+   "expiry": "2028-08",
+   "opening": 3125,
+   "received": 0,
+   "issued": 140,
+   "closing": 2985
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc",
+   "batch": "RH7855",
+   "expiry": "2028-01",
+   "opening": 1324,
+   "received": 0,
+   "issued": 58,
+   "closing": 1266
+  }
+ ]
+}

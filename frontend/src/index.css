@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import "@fontsource/nunito/400.css";
+@import "@fontsource/nunito/600.css";
+@import "@fontsource/nunito/700.css";
+@import "@fontsource/nunito/800.css";
+@import "@fontsource/noto-sans-devanagari/400.css";
+@import "@fontsource/noto-sans-devanagari/600.css";
+
+@theme {
+  --font-sans: "Nunito", "Noto Sans Devanagari", system-ui, sans-serif;
+  --color-brand-50: #eefaf7;
+  --color-brand-100: #d5f3ec;
+  --color-brand-200: #a9e5d7;
+  --color-brand-300: #72d0bd;
+  --color-brand-400: #3fb8a3;
+  --color-brand-500: #1f9d8a;
+  --color-brand-600: #167f71;
+  --color-brand-700: #14665c;
+  --color-brand-800: #13514a;
+  --color-ink: #16323a;
+  --color-muted: #5b7780;
+  --color-paper: #fbfdfc;
+  --color-line: #dcebe7;
+  --color-warn: #f0a23b;
+  --color-danger: #e5484d;
+  --color-good: #2f9e6b;
+  --shadow-card: 0 10px 30px -12px rgba(20, 102, 92, 0.25), 0 2px 6px -2px rgba(20, 102, 92, 0.1);
+  --shadow-pop: 0 18px 44px -14px rgba(20, 102, 92, 0.35);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(1100px 500px at 90% -10%, #d8f4ec 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, #e3f1fb 0%, transparent 55%),
+    var(--color-paper);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+:lang(hi), .hi { font-family: "Noto Sans Devanagari", "Nunito", sans-serif; line-height: 1.7; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem; justify-content: center;
+  border-radius: 999px; font-weight: 700; padding: .8rem 1.4rem; transition: all .2s ease; cursor: pointer;
+  border: 2px solid transparent; font-size: 1rem;
+}
+.btn-primary { background: var(--color-brand-600); color: white; box-shadow: 0 10px 24px -10px rgba(22,127,113,.7); }
+.btn-primary:hover { background: var(--color-brand-700); transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(22,127,113,.75); }
+.btn-ghost { background: white; color: var(--color-brand-700); border-color: var(--color-brand-200); }
+.btn-ghost:hover { border-color: var(--color-brand-400); transform: translateY(-2px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none !important; }
+
+.card { background: white; border: 1px solid var(--color-line); border-radius: 1.4rem; box-shadow: var(--shadow-card); }
+.chip { display: inline-flex; align-items: center; gap: .35rem; border-radius: 999px; padding: .2rem .7rem; font-weight: 700; font-size: .78rem; }
+
+.section-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
+.eyebrow { color: var(--color-brand-600); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+
+.scan-line { animation: scanmove 2.8s ease-in-out infinite; }
+@keyframes scanmove { 0%,100% { transform: translateY(0); } 50% { transform: translateY(190px); } }
+@keyframes floaty { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-14px) rotate(calc(var(--r,0deg) + 3deg)); } }
+.floaty { animation: floaty 5s ease-in-out infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 30s linear infinite; }
+@keyframes pulseRing { 0% { transform: scale(.9); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } }
+.pulse-ring { animation: pulseRing 2s ease-out infinite; }
+@keyframes dash { to { stroke-dashoffset: 0; } }
+@keyframes shimmer { 0% { background-position: -300px 0; } 100% { background-position: 300px 0; } }
+.shimmer { background: linear-gradient(90deg, #eef7f4 25%, #ffffff 50%, #eef7f4 75%); background-size: 600px 100%; animation: shimmer 1.4s linear infinite; }
+
+table.reg th { text-align: left; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-muted); padding: .6rem .5rem; position: sticky; top: 0; background: white; z-index: 1; }
+table.reg td { padding: .35rem .4rem; border-top: 1px solid var(--color-line); vertical-align: middle; }
+.cell-input { width: 100%; border: 1.5px solid transparent; background: transparent; border-radius: .6rem; padding: .35rem .5rem; font: inherit; font-weight: 600; }
+.cell-input:hover { background: #f3faf8; }
+.cell-input:focus { outline: none; border-color: var(--color-brand-400); background: white; }
+.cell-low { background: #fff6e3; border-color: #f7d99b; }
+.cell-err { background: #ffecec; border-color: #f5b3b5; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

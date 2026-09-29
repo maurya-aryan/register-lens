@@ -1,0 +1,149 @@
+{
+ "file": "reg_04_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Trivediganj",
+ "phc_id": "P07",
+ "page_date": "2026-09-16",
+ "rows": [
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "UA5053",
+   "expiry": "2027-08",
+   "opening": 1162,
+   "received": 0,
+   "issued": 68,
+   "closing": 1094
+  },
+  {
+   "med_code": "M008",
+   "written_name": "एटेनोलोल",
+   "batch": "SP9045",
+   "expiry": "2027-04",
+   "opening": 970,
+   "received": 0,
+   "issued": 76,
+   "closing": 894
+  },
+  {
+   "med_code": "M024",
+   "written_name": "लोसार्टन",
+   "batch": "FF1336",
+   "expiry": "2028-02",
+   "opening": 1091,
+   "received": 0,
+   "issued": 42,
+   "closing": 1049
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Para",
+   "batch": "NS8003",
+   "expiry": "2028-01",
+   "opening": 5294,
+   "received": 0,
+   "issued": 174,
+   "closing": 5120
+  },
+  {
+   "med_code": "M005",
+   "written_name": "CTZ",
+   "batch": "SP5076",
+   "expiry": "2028-01",
+   "opening": 3676,
+   "received": 0,
+   "issued": 71,
+   "closing": 3605
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "UB2674",
+   "expiry": "2028-03",
+   "opening": 1417,
+   "received": 0,
+   "issued": 45,
+   "closing": 1372
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "SL8173",
+   "expiry": "2028-04",
+   "opening": 31,
+   "received": 0,
+   "issued": 2,
+   "closing": 29
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "JT1453",
+   "expiry": "2027-05",
+   "opening": 800,
+   "received": 136,
+   "issued": 18,
+   "closing": 918
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "BA7887",
+   "expiry": "2028-06",
+   "opening": 1216,
+   "received": 0,
+   "issued": 46,
+   "closing": 1170
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxy",
+   "batch": "AG3565",
+   "expiry": "2026-11",
+   "opening": 1489,
+   "received": 0,
+   "issued": 96,
+   "closing": 1393
+  },
+  {
+   "med_code": "M028",
+   "written_name": "कोट्रिमोक्साजोल",
+   "batch": "HJ7358",
+   "expiry": "2027-11",
+   "opening": 558,
+   "received": 0,
+   "issued": 40,
+   "closing": 518
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "UH1622",
+   "expiry": "2027-07",
+   "opening": 827,
+   "received": 0,
+   "issued": 79,
+   "closing": 748
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "TF4714",
+   "expiry": "2027-03",
+   "opening": 876,
+   "received": 0,
+   "issued": 97,
+   "closing": 779
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "SH5399",
+   "expiry": "2027-02",
+   "opening": 2563,
+   "received": 0,
+   "issued": 121,
+   "closing": 2442
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "file": "reg_27_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-16",
+ "rows": [
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "RT7107",
+   "expiry": "2026-10",
+   "opening": 2206,
+   "received": 774,
+   "issued": 87,
+   "closing": 2893
+  },
+  {
+   "med_code": "M002",
+   "written_name": "Oral Rehydration Salts",
+   "batch": "TE3559",
+   "expiry": "2027-02",
+   "opening": 539,
+   "received": 0,
+   "issued": 61,
+   "closing": 478
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepride",
+   "batch": "RL7164",
+   "expiry": "2028-02",
+   "opening": 2567,
+   "received": 0,
+   "issued": 52,
+   "closing": 2515
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "BR1948",
+   "expiry": "2028-09",
+   "opening": 61,
+   "received": 0,
+   "issued": 8,
+   "closing": 53
+  },
+  {
+   "med_code": "M025",
+   "written_name": "पोविडोन आयोडीन",
+   "batch": "BD1528",
+   "expiry": "2028-02",
+   "opening": 44,
+   "received": 0,
+   "issued": 6,
+   "closing": 38
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "EJ6527",
+   "expiry": "2027-03",
+   "opening": 245,
+   "received": 0,
+   "issued": 47,
+   "closing": 198
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron Folic",
+   "batch": "BB9337",
+   "expiry": "2027-12",
+   "opening": 7727,
+   "received": 0,
+   "issued": 234,
+   "closing": 7493
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Cipro",
+   "batch": "FG6902",
+   "expiry": "2027-04",
+   "opening": 761,
+   "received": 802,
+   "issued": 56,
+   "closing": 1507
+  },
+  {
+   "med_code": "M026",
+   "written_name": "क्लोरोक्वीन",
+   "batch": "TW7497",
+   "expiry": "2028-06",
+   "opening": 1183,
+   "received": 0,
+   "issued": 34,
+   "closing": 1149
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "UP6696",
+   "expiry": "2027-06",
+   "opening": 2065,
+   "received": 0,
+   "issued": 122,
+   "closing": 1943
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "MB5549",
+   "expiry": "2028-03",
+   "opening": 565,
+   "received": 0,
+   "issued": 150,
+   "closing": 415
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "EA9664",
+   "expiry": "2027-10",
+   "opening": 2946,
+   "received": 0,
+   "issued": 77,
+   "closing": 2869
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "WU7141",
+   "expiry": "2028-02",
+   "opening": 3142,
+   "received": 852,
+   "issued": 107,
+   "closing": 3887
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "GM3560",
+   "expiry": "2027-07",
+   "opening": 264,
+   "received": 200,
+   "issued": 44,
+   "closing": 420
+  }
+ ]
+}

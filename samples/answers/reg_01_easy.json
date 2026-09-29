@@ -1,0 +1,149 @@
+{
+ "file": "reg_01_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M001",
+   "written_name": "पैरासिटामोल",
+   "batch": "UN2462",
+   "expiry": "2028-04",
+   "opening": 2367,
+   "received": 3593,
+   "issued": 389,
+   "closing": 5571
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "GA8095",
+   "expiry": "2028-07",
+   "opening": 778,
+   "received": 0,
+   "issued": 95,
+   "closing": 683
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepride",
+   "batch": "VB1968",
+   "expiry": "2027-05",
+   "opening": 740,
+   "received": 1163,
+   "issued": 67,
+   "closing": 1836
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "BW2461",
+   "expiry": "2027-05",
+   "opening": 1267,
+   "received": 807,
+   "issued": 109,
+   "closing": 1965
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "BE3414",
+   "expiry": "2028-01",
+   "opening": 2577,
+   "received": 0,
+   "issued": 115,
+   "closing": 2462
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "AH2900",
+   "expiry": "2027-01",
+   "opening": 632,
+   "received": 0,
+   "issued": 25,
+   "closing": 607
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Avil",
+   "batch": "AR5128",
+   "expiry": "2028-02",
+   "opening": 472,
+   "received": 0,
+   "issued": 61,
+   "closing": 411
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "GD6059",
+   "expiry": "2027-09",
+   "opening": 3373,
+   "received": 0,
+   "issued": 190,
+   "closing": 3183
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "CD2875",
+   "expiry": "2027-08",
+   "opening": 1912,
+   "received": 3017,
+   "issued": 153,
+   "closing": 4776
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "TR7616",
+   "expiry": "2027-05",
+   "opening": 2964,
+   "received": 0,
+   "issued": 103,
+   "closing": 2861
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetrizine",
+   "batch": "TB2058",
+   "expiry": "2028-04",
+   "opening": 2717,
+   "received": 0,
+   "issued": 118,
+   "closing": 2599
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "WC6444",
+   "expiry": "2027-03",
+   "opening": 684,
+   "received": 795,
+   "issued": 52,
+   "closing": 1427
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "DJ5717",
+   "expiry": "2028-02",
+   "opening": 1100,
+   "received": 0,
+   "issued": 45,
+   "closing": 1055
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "TJ4494",
+   "expiry": "2028-02",
+   "opening": 456,
+   "received": 0,
+   "issued": 114,
+   "closing": 342
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "file": "reg_03_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Suratganj",
+ "phc_id": "P08",
+ "page_date": "2026-09-23",
+ "rows": [
+  {
+   "med_code": "M019",
+   "written_name": "Vit A",
+   "batch": "BJ7624",
+   "expiry": "2027-11",
+   "opening": 54,
+   "received": 0,
+   "issued": 6,
+   "closing": 48
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "EE5106",
+   "expiry": "2027-05",
+   "opening": 1231,
+   "received": 558,
+   "issued": 59,
+   "closing": 1730
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "ME9370",
+   "expiry": "2028-08",
+   "opening": 1919,
+   "received": 0,
+   "issued": 49,
+   "closing": 1870
+  },
+  {
+   "med_code": "M022",
+   "written_name": "डॉक्सीसाइक्लिन",
+   "batch": "JT4925",
+   "expiry": "2028-03",
+   "opening": 300,
+   "received": 0,
+   "issued": 38,
+   "closing": 262
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "WV3087",
+   "expiry": "2027-11",
+   "opening": 488,
+   "received": 390,
+   "issued": 22,
+   "closing": 856
+  },
+  {
+   "med_code": "M002",
+   "written_name": "O.R.S",
+   "batch": "HN9259",
+   "expiry": "2027-03",
+   "opening": 177,
+   "received": 0,
+   "issued": 50,
+   "closing": 127
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "RV6822",
+   "expiry": "2027-05",
+   "opening": 1473,
+   "received": 0,
+   "issued": 52,
+   "closing": 1421
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Aten",
+   "batch": "UL1957",
+   "expiry": "2027-09",
+   "opening": 2837,
+   "received": 763,
+   "issued": 95,
+   "closing": 3505
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc Sulphate",
+   "batch": "FF7199",
+   "expiry": "2028-03",
+   "opening": 190,
+   "received": 296,
+   "issued": 54,
+   "closing": 432
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Cal 500",
+   "batch": "CN5639",
+   "expiry": "2026-11",
+   "opening": 2891,
+   "received": 0,
+   "issued": 111,
+   "closing": 2780
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losar",
+   "batch": "TF8787",
+   "expiry": "2027-01",
+   "opening": 2105,
+   "received": 0,
+   "issued": 60,
+   "closing": 2045
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metronidazole",
+   "batch": "BB5023",
+   "expiry": "2027-09",
+   "opening": 468,
+   "received": 0,
+   "issued": 63,
+   "closing": 405
+  },
+  {
+   "med_code": "M025",
+   "written_name": "PVP-I",
+   "batch": "KC5076",
+   "expiry": "2027-04",
+   "opening": 60,
+   "received": 91,
+   "issued": 5,
+   "closing": 146
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "TC7921",
+   "expiry": "2026-11",
+   "opening": 672,
+   "received": 1637,
+   "issued": 71,
+   "closing": 2238
+  }
+ ]
+}
