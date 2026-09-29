@@ -1,0 +1,149 @@
+{
+ "file": "reg_18_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Trivediganj",
+ "phc_id": "P07",
+ "page_date": "2026-09-25",
+ "rows": [
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "LS8994",
+   "expiry": "2028-07",
+   "opening": 1180,
+   "received": 0,
+   "issued": 21,
+   "closing": 1159
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "DE3973",
+   "expiry": "2027-10",
+   "opening": 1726,
+   "received": 340,
+   "issued": 34,
+   "closing": 2032
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omez",
+   "batch": "EK4955",
+   "expiry": "2026-11",
+   "opening": 358,
+   "received": 688,
+   "issued": 79,
+   "closing": 967
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "KS3288",
+   "expiry": "2028-02",
+   "opening": 678,
+   "received": 0,
+   "issued": 71,
+   "closing": 607
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc Sulphate",
+   "batch": "SG2227",
+   "expiry": "2028-06",
+   "opening": 1427,
+   "received": 447,
+   "issued": 42,
+   "closing": 1832
+  },
+  {
+   "med_code": "M022",
+   "written_name": "डॉक्सीसाइक्लिन",
+   "batch": "GM2609",
+   "expiry": "2028-03",
+   "opening": 479,
+   "received": 0,
+   "issued": 43,
+   "closing": 436
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Metformin",
+   "batch": "CD2238",
+   "expiry": "2028-03",
+   "opening": 4731,
+   "received": 0,
+   "issued": 167,
+   "closing": 4564
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "RW5507",
+   "expiry": "2026-11",
+   "opening": 3051,
+   "received": 0,
+   "issued": 94,
+   "closing": 2957
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "WJ2937",
+   "expiry": "2027-11",
+   "opening": 137,
+   "received": 0,
+   "issued": 5,
+   "closing": 132
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "CU1451",
+   "expiry": "2027-12",
+   "opening": 149,
+   "received": 0,
+   "issued": 3,
+   "closing": 146
+  },
+  {
+   "med_code": "M002",
+   "written_name": "O.R.S",
+   "batch": "HA7209",
+   "expiry": "2027-01",
+   "opening": 165,
+   "received": 0,
+   "issued": 33,
+   "closing": 132
+  },
+  {
+   "med_code": "M014",
+   "written_name": "पैंटोप्राज़ोल",
+   "batch": "FW4563",
+   "expiry": "2028-09",
+   "opening": 326,
+   "received": 0,
+   "issued": 70,
+   "closing": 256
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "MG5260",
+   "expiry": "2028-09",
+   "opening": 1348,
+   "received": 0,
+   "issued": 49,
+   "closing": 1299
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "EG6719",
+   "expiry": "2027-06",
+   "opening": 634,
+   "received": 311,
+   "issued": 20,
+   "closing": 925
+  }
+ ]
+}

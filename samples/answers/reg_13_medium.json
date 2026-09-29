@@ -1,0 +1,149 @@
+{
+ "file": "reg_13_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Suratganj",
+ "phc_id": "P08",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "CK6226",
+   "expiry": "2027-04",
+   "opening": 748,
+   "received": 0,
+   "issued": 90,
+   "closing": 658
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "MS8314",
+   "expiry": "2028-03",
+   "opening": 1677,
+   "received": 0,
+   "issued": 151,
+   "closing": 1526
+  },
+  {
+   "med_code": "M009",
+   "written_name": "आयरन फोलिक",
+   "batch": "PC5751",
+   "expiry": "2028-02",
+   "opening": 3444,
+   "received": 0,
+   "issued": 219,
+   "closing": 3225
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "UP3099",
+   "expiry": "2027-06",
+   "opening": 469,
+   "received": 0,
+   "issued": 27,
+   "closing": 442
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "KC5769",
+   "expiry": "2027-09",
+   "opening": 428,
+   "received": 0,
+   "issued": 81,
+   "closing": 347
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "DU9894",
+   "expiry": "2027-08",
+   "opening": 1246,
+   "received": 0,
+   "issued": 44,
+   "closing": 1202
+  },
+  {
+   "med_code": "M006",
+   "written_name": "मेटफॉर्मिन",
+   "batch": "HP8640",
+   "expiry": "2027-05",
+   "opening": 5527,
+   "received": 0,
+   "issued": 197,
+   "closing": 5330
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "BD5533",
+   "expiry": "2028-06",
+   "opening": 1735,
+   "received": 0,
+   "issued": 75,
+   "closing": 1660
+  },
+  {
+   "med_code": "M012",
+   "written_name": "सिप्रोफ्लोक्सासिन",
+   "batch": "BH7623",
+   "expiry": "2027-01",
+   "opening": 457,
+   "received": 560,
+   "issued": 61,
+   "closing": 956
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metro",
+   "batch": "AU5417",
+   "expiry": "2028-08",
+   "opening": 903,
+   "received": 0,
+   "issued": 70,
+   "closing": 833
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omep",
+   "batch": "KL5762",
+   "expiry": "2027-07",
+   "opening": 2992,
+   "received": 0,
+   "issued": 78,
+   "closing": 2914
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "FR7881",
+   "expiry": "2027-09",
+   "opening": 1124,
+   "received": 230,
+   "issued": 39,
+   "closing": 1315
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetrizine",
+   "batch": "SE2414",
+   "expiry": "2026-11",
+   "opening": 2328,
+   "received": 640,
+   "issued": 88,
+   "closing": 2880
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc 20",
+   "batch": "NF7785",
+   "expiry": "2027-07",
+   "opening": 1551,
+   "received": 565,
+   "issued": 35,
+   "closing": 2081
+  }
+ ]
+}

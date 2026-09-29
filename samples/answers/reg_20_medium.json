@@ -1,0 +1,149 @@
+{
+ "file": "reg_20_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Haidergarh",
+ "phc_id": "P02",
+ "page_date": "2026-09-15",
+ "rows": [
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "FK2810",
+   "expiry": "2027-06",
+   "opening": 291,
+   "received": 0,
+   "issued": 37,
+   "closing": 254
+  },
+  {
+   "med_code": "M005",
+   "written_name": "सेटिरिजिन",
+   "batch": "UL4175",
+   "expiry": "2026-12",
+   "opening": 3648,
+   "received": 932,
+   "issued": 101,
+   "closing": 4479
+  },
+  {
+   "med_code": "M002",
+   "written_name": "ओआरएस",
+   "batch": "GT5374",
+   "expiry": "2027-01",
+   "opening": 911,
+   "received": 0,
+   "issued": 32,
+   "closing": 879
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "LG2817",
+   "expiry": "2027-10",
+   "opening": 1255,
+   "received": 0,
+   "issued": 99,
+   "closing": 1156
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losar",
+   "batch": "MT3914",
+   "expiry": "2027-04",
+   "opening": 1896,
+   "received": 0,
+   "issued": 56,
+   "closing": 1840
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "AS5136",
+   "expiry": "2028-03",
+   "opening": 2343,
+   "received": 0,
+   "issued": 104,
+   "closing": 2239
+  },
+  {
+   "med_code": "M006",
+   "written_name": "मेटफॉर्मिन",
+   "batch": "SC7647",
+   "expiry": "2027-03",
+   "opening": 6534,
+   "received": 0,
+   "issued": 173,
+   "closing": 6361
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "JD9763",
+   "expiry": "2026-12",
+   "opening": 1872,
+   "received": 0,
+   "issued": 76,
+   "closing": 1796
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vit A",
+   "batch": "VP4350",
+   "expiry": "2027-07",
+   "opening": 237,
+   "received": 0,
+   "issued": 4,
+   "closing": 233
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "HP5672",
+   "expiry": "2027-12",
+   "opening": 1081,
+   "received": 308,
+   "issued": 25,
+   "closing": 1364
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amox",
+   "batch": "NU1540",
+   "expiry": "2026-11",
+   "opening": 2346,
+   "received": 0,
+   "issued": 68,
+   "closing": 2278
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omep",
+   "batch": "HU5937",
+   "expiry": "2027-01",
+   "opening": 3034,
+   "received": 0,
+   "issued": 118,
+   "closing": 2916
+  },
+  {
+   "med_code": "M013",
+   "written_name": "रैनिटिडीन",
+   "batch": "NU1864",
+   "expiry": "2027-02",
+   "opening": 566,
+   "received": 489,
+   "issued": 60,
+   "closing": 995
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glim",
+   "batch": "NE6573",
+   "expiry": "2027-11",
+   "opening": 888,
+   "received": 0,
+   "issued": 66,
+   "closing": 822
+  }
+ ]
+}

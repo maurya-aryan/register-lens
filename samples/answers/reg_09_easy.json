@@ -1,0 +1,149 @@
+{
+ "file": "reg_09_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Nindaura",
+ "phc_id": "P03",
+ "page_date": "2026-09-15",
+ "rows": [
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "PM6562",
+   "expiry": "2027-05",
+   "opening": 285,
+   "received": 0,
+   "issued": 24,
+   "closing": 261
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "EU6592",
+   "expiry": "2027-03",
+   "opening": 99,
+   "received": 0,
+   "issued": 4,
+   "closing": 95
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metrogyl",
+   "batch": "RP5870",
+   "expiry": "2027-06",
+   "opening": 2018,
+   "received": 1162,
+   "issued": 44,
+   "closing": 3136
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "JE7497",
+   "expiry": "2027-11",
+   "opening": 752,
+   "received": 291,
+   "issued": 32,
+   "closing": 1011
+  },
+  {
+   "med_code": "M001",
+   "written_name": "पैरासिटामोल",
+   "batch": "EF7608",
+   "expiry": "2027-03",
+   "opening": 3979,
+   "received": 3719,
+   "issued": 240,
+   "closing": 7458
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "CE9713",
+   "expiry": "2027-07",
+   "opening": 678,
+   "received": 0,
+   "issued": 49,
+   "closing": 629
+  },
+  {
+   "med_code": "M005",
+   "written_name": "सेटिरिजिन",
+   "batch": "UU1859",
+   "expiry": "2028-01",
+   "opening": 532,
+   "received": 0,
+   "issued": 65,
+   "closing": 467
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "VB8707",
+   "expiry": "2027-09",
+   "opening": 3512,
+   "received": 0,
+   "issued": 133,
+   "closing": 3379
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Ciprofloxacin",
+   "batch": "NU8818",
+   "expiry": "2027-09",
+   "opening": 1298,
+   "received": 0,
+   "issued": 34,
+   "closing": 1264
+  },
+  {
+   "med_code": "M022",
+   "written_name": "डॉक्सीसाइक्लिन",
+   "batch": "CV2502",
+   "expiry": "2027-03",
+   "opening": 394,
+   "received": 0,
+   "issued": 36,
+   "closing": 358
+  },
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "DW2260",
+   "expiry": "2026-12",
+   "opening": 2139,
+   "received": 1000,
+   "issued": 76,
+   "closing": 3063
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "LD1281",
+   "expiry": "2027-10",
+   "opening": 80,
+   "received": 0,
+   "issued": 2,
+   "closing": 78
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "KA1604",
+   "expiry": "2028-03",
+   "opening": 1693,
+   "received": 0,
+   "issued": 144,
+   "closing": 1549
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "PR5974",
+   "expiry": "2027-05",
+   "opening": 2543,
+   "received": 0,
+   "issued": 50,
+   "closing": 2493
+  }
+ ]
+}

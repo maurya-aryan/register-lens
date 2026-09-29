@@ -1,0 +1,149 @@
+{
+ "file": "reg_26_hard.jpg",
+ "difficulty": "hard",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-22",
+ "rows": [
+  {
+   "med_code": "M008",
+   "written_name": "Atenolol",
+   "batch": "PL5545",
+   "expiry": "2027-09",
+   "opening": 1595,
+   "received": 0,
+   "issued": 122,
+   "closing": 1473
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "KT5511",
+   "expiry": "2027-10",
+   "opening": 679,
+   "received": 0,
+   "issued": 72,
+   "closing": 607
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron and Folic Acid",
+   "batch": "AV2631",
+   "expiry": "2026-12",
+   "opening": 4557,
+   "received": 0,
+   "issued": 296,
+   "closing": 4261
+  },
+  {
+   "med_code": "M024",
+   "written_name": "लोसार्टन",
+   "batch": "BT5282",
+   "expiry": "2026-12",
+   "opening": 1581,
+   "received": 0,
+   "issued": 88,
+   "closing": 1493
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Alben",
+   "batch": "BK3239",
+   "expiry": "2027-02",
+   "opening": 189,
+   "received": 0,
+   "issued": 39,
+   "closing": 150
+  },
+  {
+   "med_code": "M001",
+   "written_name": "PCM",
+   "batch": "LS4725",
+   "expiry": "2027-07",
+   "opening": 9991,
+   "received": 0,
+   "issued": 337,
+   "closing": 9654
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "SB5706",
+   "expiry": "2027-06",
+   "opening": 1687,
+   "received": 0,
+   "issued": 116,
+   "closing": 1571
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "KM8312",
+   "expiry": "2027-12",
+   "opening": 5695,
+   "received": 0,
+   "issued": 181,
+   "closing": 5514
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "FM3623",
+   "expiry": "2026-10",
+   "opening": 1040,
+   "received": 0,
+   "issued": 41,
+   "closing": 999
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metrogyl",
+   "batch": "VG5728",
+   "expiry": "2027-05",
+   "opening": 2705,
+   "received": 0,
+   "issued": 66,
+   "closing": 2639
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Metformin",
+   "batch": "UG8664",
+   "expiry": "2027-10",
+   "opening": 2126,
+   "received": 0,
+   "issued": 265,
+   "closing": 1861
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "RN3682",
+   "expiry": "2028-04",
+   "opening": 2142,
+   "received": 0,
+   "issued": 69,
+   "closing": 2073
+  },
+  {
+   "med_code": "M005",
+   "written_name": "सेटिरिजिन",
+   "batch": "MC7946",
+   "expiry": "2027-11",
+   "opening": 2276,
+   "received": 846,
+   "issued": 120,
+   "closing": 3002
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxy",
+   "batch": "AE7019",
+   "expiry": "2027-05",
+   "opening": 521,
+   "received": 0,
+   "issued": 97,
+   "closing": 424
+  }
+ ]
+}

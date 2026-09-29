@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+google-genai
+python-dotenv
+opencv-python-headless
+numpy
+pillow
+rapidfuzz
+sqlmodel
+openpyxl

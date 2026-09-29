@@ -1,0 +1,17 @@
+.env
+.venv/
+.cache/
+node_modules/
+__pycache__/
+*.pyc
+backend/registerlens.db
+backend/uploads/
+backend/cache/
+frontend/dist/
+eval/results/
+.DS_Store
+frontend/.npmrc
+server.log
+eval/shots/
+eval/eval.log
+scripts/hindi/_tmp.html

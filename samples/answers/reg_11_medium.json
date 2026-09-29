@@ -1,0 +1,149 @@
+{
+ "file": "reg_11_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Siddhaur",
+ "phc_id": "P06",
+ "page_date": "2026-09-19",
+ "rows": [
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "HJ8762",
+   "expiry": "2028-01",
+   "opening": 2132,
+   "received": 1462,
+   "issued": 78,
+   "closing": 3516
+  },
+  {
+   "med_code": "M004",
+   "written_name": "एजिथ्रोमाइसिन",
+   "batch": "FD9395",
+   "expiry": "2027-09",
+   "opening": 525,
+   "received": 173,
+   "issued": 19,
+   "closing": 679
+  },
+  {
+   "med_code": "M012",
+   "written_name": "सिप्रोफ्लोक्सासिन",
+   "batch": "EM3481",
+   "expiry": "2027-02",
+   "opening": 815,
+   "received": 0,
+   "issued": 38,
+   "closing": 777
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "JR2117",
+   "expiry": "2026-11",
+   "opening": 1462,
+   "received": 1416,
+   "issued": 90,
+   "closing": 2788
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "KR6594",
+   "expiry": "2028-01",
+   "opening": 1963,
+   "received": 0,
+   "issued": 50,
+   "closing": 1913
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "CW3524",
+   "expiry": "2027-01",
+   "opening": 2426,
+   "received": 0,
+   "issued": 65,
+   "closing": 2361
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "PL9636",
+   "expiry": "2028-04",
+   "opening": 120,
+   "received": 0,
+   "issued": 4,
+   "closing": 116
+  },
+  {
+   "med_code": "M026",
+   "written_name": "CQ",
+   "batch": "ER9522",
+   "expiry": "2028-01",
+   "opening": 221,
+   "received": 0,
+   "issued": 16,
+   "closing": 205
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "FP5009",
+   "expiry": "2027-09",
+   "opening": 1258,
+   "received": 0,
+   "issued": 46,
+   "closing": 1212
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "NV9467",
+   "expiry": "2028-04",
+   "opening": 4614,
+   "received": 1767,
+   "issued": 139,
+   "closing": 6242
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "SA8027",
+   "expiry": "2028-08",
+   "opening": 179,
+   "received": 484,
+   "issued": 27,
+   "closing": 636
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Met 500",
+   "batch": "FJ6028",
+   "expiry": "2028-05",
+   "opening": 3846,
+   "received": 0,
+   "issued": 155,
+   "closing": 3691
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "HE7613",
+   "expiry": "2028-08",
+   "opening": 259,
+   "received": 0,
+   "issued": 24,
+   "closing": 235
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "JU6071",
+   "expiry": "2028-03",
+   "opening": 1224,
+   "received": 0,
+   "issued": 49,
+   "closing": 1175
+  }
+ ]
+}

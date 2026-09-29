@@ -1,0 +1,149 @@
+{
+ "file": "reg_07_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Fatehpur",
+ "phc_id": "P01",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M020",
+   "written_name": "Cal 500",
+   "batch": "VR2988",
+   "expiry": "2026-12",
+   "opening": 3830,
+   "received": 0,
+   "issued": 200,
+   "closing": 3630
+  },
+  {
+   "med_code": "M002",
+   "written_name": "O.R.S",
+   "batch": "PF4302",
+   "expiry": "2027-07",
+   "opening": 1507,
+   "received": 0,
+   "issued": 34,
+   "closing": 1473
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "SG2880",
+   "expiry": "2027-04",
+   "opening": 4402,
+   "received": 0,
+   "issued": 140,
+   "closing": 4262
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "JW7342",
+   "expiry": "2027-03",
+   "opening": 1948,
+   "received": 0,
+   "issued": 91,
+   "closing": 1857
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "FL5093",
+   "expiry": "2027-06",
+   "opening": 6336,
+   "received": 3057,
+   "issued": 154,
+   "closing": 9239
+  },
+  {
+   "med_code": "M008",
+   "written_name": "एटेनोलोल",
+   "batch": "RG2166",
+   "expiry": "2027-09",
+   "opening": 2236,
+   "received": 0,
+   "issued": 112,
+   "closing": 2124
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "SJ8342",
+   "expiry": "2028-04",
+   "opening": 2900,
+   "received": 1900,
+   "issued": 76,
+   "closing": 4724
+  },
+  {
+   "med_code": "M004",
+   "written_name": "एजिथ्रोमाइसिन",
+   "batch": "AH6078",
+   "expiry": "2027-08",
+   "opening": 1300,
+   "received": 0,
+   "issued": 34,
+   "closing": 1266
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "NK7965",
+   "expiry": "2027-12",
+   "opening": 1049,
+   "received": 363,
+   "issued": 25,
+   "closing": 1387
+  },
+  {
+   "med_code": "M009",
+   "written_name": "IFA",
+   "batch": "ED2719",
+   "expiry": "2028-03",
+   "opening": 8184,
+   "received": 0,
+   "issued": 249,
+   "closing": 7935
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "GV9175",
+   "expiry": "2028-03",
+   "opening": 155,
+   "received": 0,
+   "issued": 6,
+   "closing": 149
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "BF2145",
+   "expiry": "2027-10",
+   "opening": 1078,
+   "received": 0,
+   "issued": 31,
+   "closing": 1047
+  },
+  {
+   "med_code": "M017",
+   "written_name": "आइबुप्रोफेन",
+   "batch": "RB1177",
+   "expiry": "2027-08",
+   "opening": 3173,
+   "received": 1136,
+   "issued": 75,
+   "closing": 4234
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "KP9342",
+   "expiry": "2026-12",
+   "opening": 367,
+   "received": 625,
+   "issued": 46,
+   "closing": 946
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "file": "reg_02_easy.jpg",
+ "difficulty": "easy",
+ "facility": "PHC Banki",
+ "phc_id": "P09",
+ "page_date": "2026-09-24",
+ "rows": [
+  {
+   "med_code": "M026",
+   "written_name": "क्लोरोक्वीन",
+   "batch": "CN6131",
+   "expiry": "2027-01",
+   "opening": 633,
+   "received": 145,
+   "issued": 22,
+   "closing": 756
+  },
+  {
+   "med_code": "M002",
+   "written_name": "ओआरएस",
+   "batch": "UF1696",
+   "expiry": "2028-04",
+   "opening": 969,
+   "received": 0,
+   "issued": 37,
+   "closing": 932
+  },
+  {
+   "med_code": "M014",
+   "written_name": "पैंटोप्राज़ोल",
+   "batch": "AB4394",
+   "expiry": "2027-07",
+   "opening": 2836,
+   "received": 0,
+   "issued": 65,
+   "closing": 2771
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "AH1812",
+   "expiry": "2027-06",
+   "opening": 7667,
+   "received": 4748,
+   "issued": 186,
+   "closing": 12229
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "KG7446",
+   "expiry": "2027-03",
+   "opening": 222,
+   "received": 0,
+   "issued": 5,
+   "closing": 217
+  },
+  {
+   "med_code": "M018",
+   "written_name": "Zinc",
+   "batch": "LP1752",
+   "expiry": "2028-06",
+   "opening": 1105,
+   "received": 0,
+   "issued": 32,
+   "closing": 1073
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "PC7932",
+   "expiry": "2028-03",
+   "opening": 1123,
+   "received": 656,
+   "issued": 29,
+   "closing": 1750
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "VK2534",
+   "expiry": "2028-08",
+   "opening": 2823,
+   "received": 0,
+   "issued": 127,
+   "closing": 2696
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "KR5058",
+   "expiry": "2027-07",
+   "opening": 1533,
+   "received": 1207,
+   "issued": 74,
+   "closing": 2666
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Met 500",
+   "batch": "LU6079",
+   "expiry": "2027-01",
+   "opening": 5868,
+   "received": 1883,
+   "issued": 212,
+   "closing": 7539
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Albendazole",
+   "batch": "HS2280",
+   "expiry": "2027-09",
+   "opening": 889,
+   "received": 0,
+   "issued": 30,
+   "closing": 859
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbutamol",
+   "batch": "DF6725",
+   "expiry": "2028-07",
+   "opening": 878,
+   "received": 0,
+   "issued": 49,
+   "closing": 829
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron and Folic Acid",
+   "batch": "DK4493",
+   "expiry": "2028-01",
+   "opening": 2801,
+   "received": 0,
+   "issued": 221,
+   "closing": 2580
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omeprazole",
+   "batch": "NV5366",
+   "expiry": "2027-09",
+   "opening": 495,
+   "received": 0,
+   "issued": 108,
+   "closing": 387
+  }
+ ]
+}

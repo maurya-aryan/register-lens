@@ -1,0 +1,149 @@
+{
+ "file": "reg_12_medium.jpg",
+ "difficulty": "medium",
+ "facility": "PHC Siddhaur",
+ "phc_id": "P06",
+ "page_date": "2026-09-17",
+ "rows": [
+  {
+   "med_code": "M015",
+   "written_name": "सल्बुटामोल",
+   "batch": "CT1828",
+   "expiry": "2027-07",
+   "opening": 339,
+   "received": 559,
+   "issued": 33,
+   "closing": 865
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithromycin",
+   "batch": "FT4874",
+   "expiry": "2026-12",
+   "opening": 530,
+   "received": 0,
+   "issued": 19,
+   "closing": 511
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Voveran",
+   "batch": "WT3500",
+   "expiry": "2027-10",
+   "opening": 1387,
+   "received": 0,
+   "issued": 63,
+   "closing": 1324
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "EH1784",
+   "expiry": "2027-07",
+   "opening": 533,
+   "received": 0,
+   "issued": 74,
+   "closing": 459
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Aten",
+   "batch": "WA9396",
+   "expiry": "2027-10",
+   "opening": 748,
+   "received": 0,
+   "issued": 56,
+   "closing": 692
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "NL3060",
+   "expiry": "2027-09",
+   "opening": 373,
+   "received": 0,
+   "issued": 42,
+   "closing": 331
+  },
+  {
+   "med_code": "M026",
+   "written_name": "CQ",
+   "batch": "KR4657",
+   "expiry": "2028-03",
+   "opening": 175,
+   "received": 0,
+   "issued": 19,
+   "closing": 156
+  },
+  {
+   "med_code": "M012",
+   "written_name": "सिप्रोफ्लोक्सासिन",
+   "batch": "EL3485",
+   "expiry": "2027-10",
+   "opening": 249,
+   "received": 0,
+   "issued": 54,
+   "closing": 195
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Metfor",
+   "batch": "RK6368",
+   "expiry": "2028-02",
+   "opening": 5019,
+   "received": 1722,
+   "issued": 120,
+   "closing": 6621
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "FD2702",
+   "expiry": "2026-11",
+   "opening": 2584,
+   "received": 0,
+   "issued": 94,
+   "closing": 2490
+  },
+  {
+   "med_code": "M023",
+   "written_name": "ग्लिमेपिराइड",
+   "batch": "EV5136",
+   "expiry": "2028-03",
+   "opening": 1143,
+   "received": 238,
+   "issued": 28,
+   "closing": 1353
+  },
+  {
+   "med_code": "M005",
+   "written_name": "सेटिरिजिन",
+   "batch": "JS3973",
+   "expiry": "2027-10",
+   "opening": 1672,
+   "received": 0,
+   "issued": 79,
+   "closing": 1593
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "SB1574",
+   "expiry": "2027-03",
+   "opening": 123,
+   "received": 0,
+   "issued": 35,
+   "closing": 88
+  },
+  {
+   "med_code": "M011",
+   "written_name": "मेट्रोनिडाजोल",
+   "batch": "UU5169",
+   "expiry": "2028-09",
+   "opening": 582,
+   "received": 0,
+   "issued": 63,
+   "closing": 519
+  }
+ ]
+}
