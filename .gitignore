@@ -8,7 +8,9 @@ backend/registerlens.db
 backend/uploads/
 backend/cache/
 frontend/dist/
-eval/results/
+eval/results/*
+!eval/results/accuracy_summary.json
+!eval/results/prewarm_scores.json
 .DS_Store
 frontend/.npmrc
 server.log

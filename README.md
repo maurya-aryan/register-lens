@@ -44,8 +44,22 @@ Regenerate the synthetic test pages (needs `pip install playwright` and Chrome f
 python scripts/render_hindi.py && python scripts/gen_registers.py
 ```
 
-## Evaluation
-`eval/run_eval.py` reads all 30 synthetic pages (10 easy / 12 medium / 8 hard) with and without the OpenCV clean-up and scores cell-level accuracy against the answer keys. See `eval/results/summary.txt` after a run.
+## Evaluation (synthetic pages, honest numbers)
+12 synthetic handwritten pages (6 easy, 4 medium, 2 hard; 168 register lines), read once with Gemini after OpenCV clean-up and scored cell by cell against answer keys (`scripts/prewarm_samples.py`, `eval/calibration.py`):
+
+| Pages | Drug name | Batch | Expiry | Quantities (open/recv/issued/close) | Whole line exact |
+|---|---|---|---|---|---|
+| Easy (6) | 100% | 100% | 100% | 100% | 100% |
+| Medium (4) | 100% | 100% | 100% | 100% | 100% |
+| Hard (2) | 100% | 89.3% | 85.7% | 100% | 75.0% |
+| **All (12)** | **100%** | **98.2%** | **97.6%** | **100%** | **95.8%** |
+
+What went wrong and what we did about it: all 7 misread lines were on the two hard pages, and each was a single-character confusion in a batch or expiry (1/7, 6/8, 0/1). Gemini reported the same 0.95 confidence on every one of them, so **the model's own confidence did not flag any of these mistakes**. We therefore added a cross-check of each line's batch and expiry against the batches DVDMS already lists for that centre (a batch that looks like a known one with a digit off, or an expiry that disagrees, is flagged for the pharmacist). On these pages it flags all 7 misreads with 0 false alarms on the 161 correct lines. Caveat: the demo DVDMS is a mock seeded with the correct batches, so this shows the mechanism, not a real-world catch rate. Quantities, which drive the stock-out numbers, were read correctly on every page.
+
+Not measured: a conclusive raw-photo vs cleaned-photo comparison. The free Gemini tier allows only 20 requests per day per model, which ran out during our first evaluation attempt, so the clean-up step's benefit is not yet quantified.
+
+## Gemini API quota
+A free AI Studio key allows about 20 requests/day per model. The app fails over across several Gemini models, skips exhausted ones, uses lighter models for alert text, and stores the sample pages' readings in `samples/readings/` so the sample demo needs no API calls. For real use, enable billing on the key's project.
 
 ## Roadmap
 - **Phase 1 (this build):** scan → read → confirm → reconcile → bulk entry → Hindi + English alert.

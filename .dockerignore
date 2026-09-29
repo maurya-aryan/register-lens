@@ -1,0 +1,10 @@
+.env
+.venv
+.cache
+**/node_modules
+frontend/dist
+backend/uploads
+backend/cache
+backend/registerlens.db
+eval
+.git
