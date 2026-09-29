@@ -61,6 +61,11 @@ Not measured: a conclusive raw-photo vs cleaned-photo comparison. The free Gemin
 ## Gemini API quota
 A free AI Studio key allows about 20 requests/day per model. The app fails over across several Gemini models, skips exhausted ones, uses lighter models for alert text, and stores the sample pages' readings in `samples/readings/` so the sample demo needs no API calls. For real use, enable billing on the key's project.
 
+## Submission material
+- Pitch deck: `docs/deck/Register-Lens-pitch-deck.pptx` (generator: `docs/deck/build_deck.js`)
+- Demo video script: `docs/demo-video-script.md`
+- Cloud Run deployment: `DEPLOY.md`
+
 ## Roadmap
 - **Phase 1 (this build):** scan → read → confirm → reconcile → bulk entry → Hindi + English alert.
 - **Phase 2:** alerts and screens in each PHC's state language.
