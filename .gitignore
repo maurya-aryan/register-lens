@@ -17,3 +17,5 @@ server.log
 eval/shots/
 eval/eval.log
 scripts/hindi/_tmp.html
+docs/deck/render/
+docs/deck/node_modules/
