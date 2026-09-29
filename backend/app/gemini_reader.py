@@ -9,6 +9,22 @@ from . import config
 from .schemas import RegisterPage
 
 _client = None
+_dead: dict = {}  # model -> time until which we skip it (quota exhausted / not available)
+
+
+def _mark_dead(model: str, err: str):
+    if "PerDay" in err:
+        _dead[model] = time.time() + 3 * 3600
+    elif "404" in err or "NOT_FOUND" in err:
+        _dead[model] = time.time() + 24 * 3600
+    elif "429" in err or "RESOURCE_EXHAUSTED" in err:
+        _dead[model] = time.time() + 20
+
+
+def _alive(models):
+    now = time.time()
+    live = [m for m in models if _dead.get(m, 0) < now]
+    return live or list(models)  # if everything looks dead, still try them all
 
 
 def client():
@@ -63,12 +79,17 @@ def _call(model: str, png: bytes) -> RegisterPage:
     return RegisterPage.model_validate_json(resp.text)
 
 
-def read_register(png: bytes, use_cache: bool = True, tag: str = ""):
+def read_register(png: bytes, use_cache: bool = True, tag: str = "", store_path=None):
     """Returns (RegisterPage, meta). Falls back across models; retries with Pro if shaky."""
     key = _hash(png) + tag
     cache_file = config.CACHE_DIR / f"read_{key}.json"
+    if store_path is not None and store_path.exists():
+        d = json.loads(store_path.read_text(encoding="utf-8"))
+        return RegisterPage.model_validate(d["page"]), {**d["meta"], "cached": True, "stored": True}
     if use_cache and cache_file.exists():
         d = json.loads(cache_file.read_text(encoding="utf-8"))
+        if store_path is not None:
+            store_path.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
         return RegisterPage.model_validate(d["page"]), {**d["meta"], "cached": True}
 
     errors = []
@@ -77,13 +98,14 @@ def read_register(png: bytes, use_cache: bool = True, tag: str = ""):
     t0 = time.time()
     transient = ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "504", "DEADLINE")
     for round_ in range(3):
-        for m in config.READ_MODELS:
+        for m in _alive(config.READ_MODELS):
             try:
                 page = _call(m, png)
                 used = m
                 break
             except Exception as e:  # noqa: BLE001
                 msg = str(e)
+                _mark_dead(m, msg)
                 errors.append(f"{m}: {msg[:120]}")
         if page is not None:
             break
@@ -96,16 +118,20 @@ def read_register(png: bytes, use_cache: bool = True, tag: str = ""):
     meta = {"model": used, "escalated": False, "cached": False}
     share = _low_conf_share(page)
     meta["low_conf_share"] = round(share, 3)
-    if share > 0.25 and config.PRO_MODEL:
+    if share > 0.25 and config.PRO_MODEL and _dead.get(config.PRO_MODEL, 0) < time.time():
         try:
             better = _call(config.PRO_MODEL, png)
             if _low_conf_share(better) <= share:
                 page, meta["model"], meta["escalated"] = better, config.PRO_MODEL, True
                 meta["low_conf_share"] = round(_low_conf_share(better), 3)
         except Exception as e:  # noqa: BLE001
+            _mark_dead(config.PRO_MODEL, str(e))
             meta["escalation_error"] = str(e)[:200]
     meta["seconds"] = round(time.time() - t0, 1)
-    cache_file.write_text(json.dumps({"page": page.model_dump(), "meta": meta}, ensure_ascii=False), encoding="utf-8")
+    blob = json.dumps({"page": page.model_dump(), "meta": meta}, ensure_ascii=False)
+    cache_file.write_text(blob, encoding="utf-8")
+    if store_path is not None:
+        store_path.write_text(blob, encoding="utf-8")
     return page, meta
 
 
@@ -113,13 +139,14 @@ def generate_json_text(prompt: str, temperature: float = 0.0, rounds: int = 3):
     """Text-only Gemini call returning parsed JSON, with model failover and retry on overload.
     Returns (data, model_used) or (None, None)."""
     for round_ in range(rounds):
-        for m in config.TEXT_MODELS:
+        for m in _alive(config.TEXT_MODELS):
             try:
                 resp = client().models.generate_content(
                     model=m, contents=prompt,
                     config=types.GenerateContentConfig(response_mime_type="application/json", temperature=temperature))
                 return json.loads(resp.text), m
-            except Exception:  # noqa: BLE001
+            except Exception as e:  # noqa: BLE001
+                _mark_dead(m, str(e))
                 continue
         time.sleep(2 * (round_ + 1))
     return None, None

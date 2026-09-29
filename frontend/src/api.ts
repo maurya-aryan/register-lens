@@ -20,6 +20,8 @@ export type Row = {
   flags: Flag[];
 };
 export type Scan = {
+  phc_id: string;
+  phc_switched: boolean;
   scan_id: string;
   original_url: string;
   clean_url: string;

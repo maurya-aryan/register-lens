@@ -6,6 +6,9 @@ from typing import Optional
 from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 from .catalog import MEDICINES, PHCS
+
+BASE = {m[0]: m[6] for m in MEDICINES}
+LOAD = {p[0]: p[5] for p in PHCS}
 from .config import DB_PATH
 
 engine = create_engine(f"sqlite:///{DB_PATH}", connect_args={"check_same_thread": False})
@@ -64,19 +67,25 @@ def _override_from_answer_keys(s: Session, rng: random.Random):
     ans_dir = ROOT / "samples" / "answers"
     if not ans_dir.exists():
         return
-    done = set()
+    done = {}
     for f in sorted(ans_dir.glob("*.json")):
-        d = json.loads(f.read_text(encoding="utf-8"))
-        for r in d["rows"]:
-            k = (d["phc_id"], r["med_code"])
+        data = json.loads(f.read_text(encoding="utf-8"))
+        for r in data["rows"]:
+            k = (data["phc_id"], r["med_code"])
             if k in done:
+                # another page of the same centre lists a different batch of this medicine:
+                # DVDMS knows that batch too (used up, quantity 0)
+                if r["batch"] not in done[k]:
+                    done[k].add(r["batch"])
+                    s.add(DvdmsStock(phc_id=k[0], med_code=k[1], batch=r["batch"], expiry=r["expiry"], qty=0))
                 continue
-            done.add(k)
+            done[k] = {r["batch"]}
             for old in s.exec(select(DvdmsStock).where(DvdmsStock.phc_id == k[0], DvdmsStock.med_code == k[1])).all():
                 s.delete(old)
             factor = rng.uniform(1.0, 1.25) if rng.random() < 0.55 else rng.uniform(1.8, 9.0)
+            daily = max(1, round(BASE[k[1]] * LOAD[k[0]]))
             s.add(DvdmsStock(phc_id=k[0], med_code=k[1], batch=r["batch"], expiry=r["expiry"],
-                             qty=int(r["closing"] * factor)))
+                             qty=int(min(r["closing"] * factor, daily * 75))))  # DVDMS never claims more than ~75 days
     s.commit()
 
 

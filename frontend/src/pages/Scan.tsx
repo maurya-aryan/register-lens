@@ -149,8 +149,8 @@ function Reading({ preview }: { preview: string | null }) {
 }
 
 /* ------------------------------ REVIEW ------------------------------ */
-function Review({ scan, rows, setRows, confirmed, setConfirmed, onNext, onBack }: {
-  scan: ScanT; rows: Row[]; setRows: (r: Row[]) => void; confirmed: Set<number>; setConfirmed: (s: Set<number>) => void; onNext: () => void; onBack: () => void;
+function Review({ scan, phcName, rows, setRows, confirmed, setConfirmed, onNext, onBack }: {
+  scan: ScanT; phcName: string; rows: Row[]; setRows: (r: Row[]) => void; confirmed: Set<number>; setConfirmed: (s: Set<number>) => void; onNext: () => void; onBack: () => void;
 }) {
   const thr = scan.low_conf_threshold;
   const [view, setView] = useState<"clean" | "orig">("clean");
@@ -193,7 +193,10 @@ function Review({ scan, rows, setRows, confirmed, setConfirmed, onNext, onBack }
               {pending.length ? <><AlertTriangle size={13} /> {pending.length} need a look</> : <><CheckCheck size={13} /> all checked</>}
             </span>
           </div>
-          <p className="text-sm text-muted mb-3">Yellow cells are ones Gemini was unsure about. Red means the numbers do not add up. Click any cell to fix it, or confirm the line as it is.</p>
+          {scan.phc_switched && (
+            <div className="mb-3 rounded-xl bg-sky-50 border border-sky-100 text-sky-800 px-3 py-2 text-sm font-semibold flex gap-2"><Info size={16} className="shrink-0 mt-0.5" /> {scan.facility_written ? `The page is headed “${scan.facility_written}”, so I matched it to ${phcName}.` : `Using the health centre this page belongs to: ${phcName}.`}</div>
+          )}
+          <p className="text-sm text-muted mb-3">Yellow cells are ones Gemini was unsure about. Red means the numbers do not add up. Amber notes come from checking the batch against DVDMS. Click any cell to fix it, or confirm the line as it is.</p>
           <div className="overflow-auto max-h-[62vh] rounded-xl border border-line">
             <table className="reg w-full text-sm min-w-[820px]">
               <thead><tr>
@@ -209,6 +212,9 @@ function Review({ scan, rows, setRows, confirmed, setConfirmed, onNext, onBack }
                         <div className="px-2 text-[11px] font-bold">
                           {r.med_name ? <span className="text-brand-700">→ {r.med_name}{r.matched_by === "gemini" ? " (AI matched)" : ""}</span> : <span className="text-amber-700">not matched</span>}
                         </div>
+                        {r.flags.filter((f) => f.level !== "info").map((f) => (
+                          <div key={f.code} className={`px-2 mt-0.5 text-[11px] leading-snug font-semibold ${f.level === "error" ? "text-rose-600" : "text-amber-700"}`}>⚠ {f.msg}</div>
+                        ))}
                       </td>
                       <td><input className={`cell-input ${lowCls(r, "batch")}`} value={r.batch ?? ""} onChange={(e) => setField(r.id, { batch: e.target.value }, "batch")} /></td>
                       <td><input className={`cell-input ${lowCls(r, "expiry")}`} value={r.expiry ?? ""} placeholder="YYYY-MM" onChange={(e) => setField(r.id, { expiry: e.target.value }, "expiry")} /></td>
@@ -221,9 +227,6 @@ function Review({ scan, rows, setRows, confirmed, setConfirmed, onNext, onBack }
                         ) : needs(r) ? (
                           <span className="chip bg-green-100 text-green-700"><CheckCheck size={12} /> OK</span>
                         ) : null}
-                        {r.flags.filter((f) => f.level !== "info").slice(0, 1).map((f) => (
-                          <div key={f.code} className="text-[10px] leading-tight text-muted mt-1 text-right" title={f.msg}>{f.msg.length > 44 ? f.msg.slice(0, 42) + "…" : f.msg}</div>
-                        ))}
                       </td>
                     </tr>
                   );
@@ -426,7 +429,9 @@ export default function ScanPage() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: "auto" }); }, [phase]);
 
   const begin = useCallback((s: ScanT) => {
-    setScan(s); setRows(s.rows); setConfirmed(new Set()); setPhase("review");
+    setScan(s); setRows(s.rows); setConfirmed(new Set());
+    if (s.phc_switched) setPhc(s.phc_id);
+    setPhase("review");
   }, []);
   const fail = (e: Error) => { setErr(e.message); setPhase("capture"); };
   const onFile = (f: File) => {
@@ -470,7 +475,7 @@ export default function ScanPage() {
       <AnimatePresence mode="wait">
         {phase === "capture" && <Capture key="c" phcs={phcs} phc={phc} setPhc={setPhc} onFile={onFile} onSample={onSample} samples={samples} highlightSamples={sp.get("sample") === "1"} />}
         {phase === "reading" && <Reading key="r" preview={preview} />}
-        {phase === "review" && scan && <Review key="v" scan={scan} rows={rows} setRows={setRows} confirmed={confirmed} setConfirmed={setConfirmed} onNext={toReconcile} onBack={reset} />}
+        {phase === "review" && scan && <Review key="v" scan={scan} phcName={phcs.find((p) => p.id === phc)?.name ?? ""} rows={rows} setRows={setRows} confirmed={confirmed} setConfirmed={setConfirmed} onNext={toReconcile} onBack={reset} />}
         {phase === "reconcile" && rec && <Reconcile key="x" rec={rec} onBack={() => setPhase("review")} onNext={() => setPhase("sync")} />}
         {phase === "sync" && rec && <Sync key="s" rec={rec} rows={rows} phcId={phc} onAgain={reset} />}
       </AnimatePresence>

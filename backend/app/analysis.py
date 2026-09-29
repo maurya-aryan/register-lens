@@ -109,7 +109,7 @@ def validate_row(r: dict) -> List[dict]:
     return flags
 
 
-def prepare_rows(page_rows: List[dict], meds: List[Medicine]) -> List[dict]:
+def prepare_rows(page_rows: List[dict], meds: List[Medicine], dv_batches: Optional[Dict[str, List[tuple]]] = None) -> List[dict]:
     index = build_index(meds)
     by_code = {m.code: m for m in meds}
     out, pending = [], []
@@ -130,12 +130,51 @@ def prepare_rows(page_rows: List[dict], meds: List[Medicine]) -> List[dict]:
         row["med_name"] = f"{m.name} {m.strength}" if m else None
         row["unit"] = m.unit if m else None
         row["flags"] = validate_row(row)
+        row["flags"] += batch_crosscheck(row, (dv_batches or {}).get(row["med_code"] or "", []))
         if m is None:
             row["flags"].append({"code": "unmatched", "level": "warn", "msg": "Could not match this to a known medicine."})
     return out
 
 
+def batch_crosscheck(row: dict, known: List[tuple]) -> List[dict]:
+    """Compare the register's batch/expiry with the batches DVDMS already lists for this centre.
+    Catches single-character misreads that the model's own confidence misses."""
+    b = (row.get("batch") or "").replace(" ", "").upper()
+    if not b or not known:
+        return []
+    exact = [k for k in known if k[0].upper() == b]
+    if exact:
+        exp = row.get("expiry")
+        if exp and exact[0][1] and exp != exact[0][1]:
+            return [{"code": "expiry_mismatch", "level": "warn",
+                     "msg": f"DVDMS lists expiry {exact[0][1]} for batch {b}, the register reads {exp}. Please check."}]
+        return []
+    near = [k for k in known if fuzz.ratio(k[0].upper(), b) >= 66]
+    if near:
+        return [{"code": "batch_near", "level": "warn",
+                 "msg": f"Batch {b} looks like {near[0][0]} in DVDMS. Check for a misread digit."}]
+    return [{"code": "new_batch", "level": "info", "msg": "New batch, not yet in DVDMS."}]
+
+
 # ---------- reconciliation ----------
+def dvdms_batches(session: Session, phc_id: str) -> Dict[str, List[tuple]]:
+    out: Dict[str, List[tuple]] = {}
+    for s in session.exec(select(DvdmsStock).where(DvdmsStock.phc_id == phc_id)).all():
+        out.setdefault(s.med_code, []).append((s.batch, s.expiry))
+    return out
+
+
+def match_phc(session: Session, written: Optional[str]) -> Optional[str]:
+    """Pick the health centre from the facility name written on the page."""
+    if not written:
+        return None
+    phcs = session.exec(select(PHC)).all()
+    best = process.extractOne(written.lower(), [p.name.lower() for p in phcs], scorer=fuzz.WRatio)
+    if best and best[1] >= 88:
+        return phcs[best[2]].id
+    return None
+
+
 def reconcile(session: Session, phc_id: str, rows: List[dict]) -> dict:
     phc = session.get(PHC, phc_id)
     meds = {m.code: m for m in session.exec(select(Medicine)).all()}

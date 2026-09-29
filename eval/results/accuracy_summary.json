@@ -1,0 +1,38 @@
+{
+ "easy": {
+  "pages": 6,
+  "name": 100.0,
+  "batch": 100.0,
+  "expiry": 100.0,
+  "qty": 100.0,
+  "rows_row_exact": 100.0,
+  "rows": 84
+ },
+ "medium": {
+  "pages": 4,
+  "name": 100.0,
+  "batch": 100.0,
+  "expiry": 100.0,
+  "qty": 100.0,
+  "rows_row_exact": 100.0,
+  "rows": 56
+ },
+ "hard": {
+  "pages": 2,
+  "name": 100.0,
+  "batch": 89.3,
+  "expiry": 85.7,
+  "qty": 100.0,
+  "rows_row_exact": 75.0,
+  "rows": 28
+ },
+ "all": {
+  "pages": 12,
+  "name": 100.0,
+  "batch": 98.2,
+  "expiry": 97.6,
+  "qty": 100.0,
+  "rows_row_exact": 95.8,
+  "rows": 168
+ }
+}

@@ -39,7 +39,10 @@ def phcs(session: Session = Depends(get_session)):
 @app.get("/api/samples")
 def samples():
     out = []
+    stored = {f.stem for f in config.READINGS_DIR.glob("*.json")}
     for p in sorted(config.SAMPLES_DIR.glob("*.png")) + sorted(config.SAMPLES_DIR.glob("*.jpg")):
+        if stored and p.stem not in stored:
+            continue  # gallery lists only pages with a stored reading (instant, no API call)
         out.append({"name": p.name, "url": f"/api/sample-image/{p.name}", "thumb": f"/api/sample-thumb/{p.name}"})
     return out
 
@@ -76,7 +79,7 @@ def upload_file(name: str):
     return FileResponse(p)
 
 
-def _run_scan(image_bytes: bytes, phc_id: str, session: Session, use_cache: bool, tag: str = ""):
+def _run_scan(image_bytes: bytes, phc_id: str, session: Session, use_cache: bool, tag: str = "", store_path=None, force_phc: Optional[str] = None):
     if not session.get(PHC, phc_id):
         raise HTTPException(404, "Unknown PHC")
     try:
@@ -88,12 +91,19 @@ def _run_scan(image_bytes: bytes, phc_id: str, session: Session, use_cache: bool
     (config.UPLOAD_DIR / f"{sid}_clean.png").write_bytes(cleaned)
     t0 = time.time()
     try:
-        page, meta = read_register(cleaned, use_cache=use_cache, tag=tag)
+        page, meta = read_register(cleaned, use_cache=use_cache, tag=tag, store_path=store_path)
     except RuntimeError as e:
-        raise HTTPException(502, f"The AI reader is unavailable right now: {e}")
+        if "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e):
+            raise HTTPException(429, "The AI reader has reached its free usage limit for now. Sample pages still work, and uploads will work again after the limit resets.")
+        raise HTTPException(502, "The AI reader is busy right now. Please try again in a minute, or try a sample page.")
+    if not page.rows:
+        raise HTTPException(422, "I could not find a register table in this photo. Try a flatter, well-lit photo of one page.")
     meds = session.exec(select(Medicine)).all()
-    rows = analysis.prepare_rows([r.model_dump() for r in page.rows], meds)
+    used_phc = force_phc or analysis.match_phc(session, page.facility_written) or phc_id
+    rows = analysis.prepare_rows([r.model_dump() for r in page.rows], meds, analysis.dvdms_batches(session, used_phc))
     return {
+        "phc_id": used_phc,
+        "phc_switched": used_phc != phc_id,
         "scan_id": sid,
         "original_url": f"/api/uploads/{sid}_original.png",
         "clean_url": f"/api/uploads/{sid}_clean.png",
@@ -119,7 +129,10 @@ def scan_sample(name: str = Form(...), phc_id: str = Form(...), session: Session
     p = config.SAMPLES_DIR / Path(name).name
     if not p.exists():
         raise HTTPException(404, "Sample not found")
-    return _run_scan(p.read_bytes(), phc_id, session, use_cache=True)
+    key_file = config.ROOT / "samples" / "answers" / f"{p.stem}.json"
+    own_phc = json.loads(key_file.read_text(encoding="utf-8")).get("phc_id") if key_file.exists() else None
+    return _run_scan(p.read_bytes(), phc_id, session, use_cache=True,
+                     store_path=config.READINGS_DIR / f"{p.stem}.json", force_phc=own_phc)
 
 
 class ReconcileIn(BaseModel):
