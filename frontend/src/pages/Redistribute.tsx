@@ -44,11 +44,11 @@ export default function Redistribute() {
           <h1 className="text-3xl md:text-[2.1rem] font-extrabold tracking-tight">Move medicines before they expire</h1>
           <p className="text-muted mt-1 max-w-3xl">Batches that will expire before a facility can use them are matched to nearby facilities that are running short. The district officer approves every move.</p>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex flex-wrap gap-2 items-center w-full sm:w-auto">
           <select value={district} onChange={(e) => setSp({ district: e.target.value })} className="rounded-xl border border-line bg-white px-3 py-2.5 font-bold focus:outline-none focus:border-brand-400">
             {(districts.length ? districts : [district]).map((d) => <option key={d}>{d}</option>)}
           </select>
-          <a href={`/api/redistribution/orders?district=${encodeURIComponent(district)}`} className={`btn btn-primary !py-2.5 ${approved.length ? "" : "pointer-events-none opacity-50"}`}><Download size={17} /> Transfer orders ({approved.length})</a>
+          <a href={`/api/redistribution/orders?district=${encodeURIComponent(district)}`} className={`btn btn-primary !py-2.5 whitespace-nowrap ${approved.length ? "" : "pointer-events-none opacity-50"}`}><Download size={17} /> Transfer orders ({approved.length})</a>
         </div>
       </div>
       {err && <div className="mb-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 p-3 font-bold">{err}</div>}
