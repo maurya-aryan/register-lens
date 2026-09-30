@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Camera } from "lucide-react";
+import { Camera, Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
@@ -11,7 +11,9 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const loc = useLocation();
+  useEffect(() => setOpen(false), [loc.pathname, loc.hash]);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
     on();
@@ -27,7 +29,7 @@ export default function Nav() {
           <Logo />
           <div className="leading-tight">
             <div className="font-extrabold text-lg text-brand-800">Register Lens</div>
-            <div className="text-[11px] text-muted font-semibold tracking-wide">Smart health supply chain</div>
+            <div className="hidden sm:block text-[11px] text-muted font-semibold tracking-wide">Smart health supply chain</div>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-1">
@@ -40,11 +42,23 @@ export default function Nav() {
             </Link>
           ))}
         </nav>
-        <Link to="/scan" className="btn btn-primary !py-2.5 !px-5 relative">
-          <span className="absolute inset-0 rounded-full bg-brand-400 pulse-ring -z-10" aria-hidden />
-          <Camera size={18} /> Scan Register
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link to="/scan" className="btn btn-primary !py-2.5 !px-4 sm:!px-5 relative">
+            <span className="absolute inset-0 rounded-full bg-brand-400 pulse-ring -z-10" aria-hidden />
+            <Camera size={18} /> <span className="hidden sm:inline">Scan Register</span><span className="sm:hidden">Scan</span>
+          </Link>
+          <button onClick={() => setOpen(!open)} className="md:hidden h-11 w-11 rounded-full bg-white border border-line grid place-items-center text-brand-700" aria-label="Menu">
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav className="md:hidden border-t border-line bg-white/95 backdrop-blur px-5 py-3 flex flex-col">
+          {[{ to: "/", label: "Home" }, ...links].map((l) => (
+            <Link key={l.to} to={l.to} className="py-3 font-bold text-ink border-b border-line last:border-0">{l.label}</Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

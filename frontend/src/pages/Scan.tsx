@@ -67,13 +67,13 @@ function Capture({ phcs, phc, setPhc, districts, district, setDistrict, onFile, 
           onDragLeave={() => setDrag(false)}
           onDrop={(e) => { e.preventDefault(); setDrag(false); const f = e.dataTransfer.files?.[0]; if (f) onFile(f); }}
           onClick={() => input.current?.click()}
-          className={`relative cursor-pointer rounded-[1.6rem] border-2 border-dashed p-10 text-center transition-all bg-white ${drag ? "border-brand-500 bg-brand-50 scale-[1.01]" : "border-brand-200 hover:border-brand-400 hover:bg-brand-50/40"}`}
+          className={`relative cursor-pointer rounded-[1.6rem] border-2 border-dashed p-6 sm:p-10 text-center transition-all bg-white ${drag ? "border-brand-500 bg-brand-50 scale-[1.01]" : "border-brand-200 hover:border-brand-400 hover:bg-brand-50/40"}`}
         >
           <input ref={input} type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => e.target.files?.[0] && onFile(e.target.files[0])} />
           <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 2.6, repeat: Infinity }} className="mx-auto h-20 w-20 rounded-3xl bg-brand-100 grid place-items-center text-brand-700">
             <UploadCloud size={38} />
           </motion.div>
-          <div className="mt-5 text-2xl font-extrabold">Drop a photo of the register page</div>
+          <div className="mt-5 text-xl sm:text-2xl font-extrabold"><span className="hidden sm:inline">Drop a photo of the register page</span><span className="sm:hidden">Take a photo of the register page</span></div>
           <p className="text-muted mt-1">or click to choose a file. On a phone this opens the camera.</p>
           <div className="mt-5 inline-flex btn btn-primary"><Camera size={20} /> Choose photo</div>
           <p className="text-xs text-muted mt-4">JPG or PNG · up to 15 MB · flat page in good light works best</p>
@@ -200,6 +200,7 @@ function Review({ scan, phcName, rows, setRows, confirmed, setConfirmed, onNext,
             <div className="mb-3 rounded-xl bg-sky-50 border border-sky-100 text-sky-800 px-3 py-2 text-sm font-semibold flex gap-2"><Info size={16} className="shrink-0 mt-0.5" /> {scan.facility_written ? `The page is headed “${scan.facility_written}”, so I matched it to ${phcName}.` : `Using the health centre this page belongs to: ${phcName}.`}</div>
           )}
           <p className="text-sm text-muted mb-3">Yellow cells are ones Gemini was unsure about. Red means the numbers do not add up. Amber notes come from checking the batch against DVDMS. Click any cell to fix it, or confirm the line as it is.</p>
+          <div className="sm:hidden text-xs font-bold text-brand-700 mb-1.5">Swipe the table sideways to see all columns →</div>
           <div className="overflow-auto max-h-[62vh] rounded-xl border border-line">
             <table className="reg w-full text-sm min-w-[820px]">
               <thead><tr>

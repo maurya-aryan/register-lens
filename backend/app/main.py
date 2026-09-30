@@ -1,4 +1,5 @@
 import json
+import mimetypes
 import time
 import uuid
 from datetime import date
@@ -16,6 +17,8 @@ from . import analysis, chat, config, preprocess, stock
 from .db import PHC, DvdmsStock, Medicine, Submission, get_session, seed
 from .gemini_reader import read_register
 
+mimetypes.add_type("application/manifest+json", ".webmanifest")
+mimetypes.add_type("text/javascript", ".js")
 app = FastAPI(title="Register Lens API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
