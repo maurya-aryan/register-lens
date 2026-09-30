@@ -199,7 +199,12 @@ function Review({ scan, phcName, rows, setRows, confirmed, setConfirmed, onNext,
           {scan.phc_switched && (
             <div className="mb-3 rounded-xl bg-sky-50 border border-sky-100 text-sky-800 px-3 py-2 text-sm font-semibold flex gap-2"><Info size={16} className="shrink-0 mt-0.5" /> {scan.facility_written ? `The page is headed “${scan.facility_written}”, so I matched it to ${phcName}.` : `Using the health centre this page belongs to: ${phcName}.`}</div>
           )}
-          <p className="text-sm text-muted mb-3">Yellow cells are ones Gemini was unsure about. Red means the numbers do not add up. Amber notes come from checking the batch against DVDMS. Click any cell to fix it, or confirm the line as it is.</p>
+          <div className="mb-3 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
+            <span className="flex items-center gap-2"><span className="h-4 w-6 rounded bg-[#fff6e3] border-2 border-[#f0c46b]" /> Gemini unsure</span>
+            <span className="flex items-center gap-2"><span className="h-4 w-6 rounded bg-[#ffecec] border-2 border-[#e5484d]" /> Numbers don't add up</span>
+            <span className="flex items-center gap-2"><span className="h-4 w-6 rounded bg-amber-100 border-2 border-amber-500" /> Batch check vs DVDMS</span>
+          </div>
+          <p className="text-sm text-muted mb-3">Tap any cell to fix it, or confirm the line as it is.</p>
           <div className="sm:hidden text-xs font-bold text-brand-700 mb-1.5">Swipe the table sideways to see all columns →</div>
           <div className="overflow-auto max-h-[62vh] rounded-xl border border-line">
             <table className="reg w-full text-sm min-w-[820px]">
