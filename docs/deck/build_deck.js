@@ -60,25 +60,23 @@ const dot = (s, x, y, d, color, txt) => {
   s.addNotes("The paper register is accurate because pharmacists must keep it. DVDMS is the system districts use to plan supply, but it lags because nobody has time to type twice. CAG audits describe exactly this: consumption not entered, stock not matching registers, dispensed drugs appearing as expired. Those are reported figures for expired drugs in Haryana and Karnataka.");
 }
 
-// ---------- 3. Who feels it ----------
+// ---------- 3. Whole of UP ----------
 {
   const s = pres.addSlide();
   s.background = { color: PALE };
-  title(s, "Three people pay for the gap");
-  const cols = [
-    ["PHC pharmacist", "Copies the day's register into DVDMS every evening, or does not, and the numbers drift.", TEAL],
-    ["District drug store officer", "Plans indents from a screen that says 40 days of stock when the shelf says 6.", SKY],
-    ["The patient", "Walks in for ORS or a BP tablet and hears it is out of stock.", AMBER],
-  ];
-  cols.forEach(([h, d, c], i) => {
-    const x = 0.5 + i * 3.05;
-    card(s, x, 1.5, 2.85, 2.9);
-    dot(s, x + 0.25, 1.75, 0.6, c, String(i + 1));
-    s.addText(h, { x: x + 0.25, y: 2.5, w: 2.4, h: 0.6, fontFace: HEAD, fontSize: 17, bold: true, color: INK, margin: 0, isTextBox: true, valign: "top" });
-    s.addText(d, { x: x + 0.25, y: 3.15, w: 2.4, h: 1.15, fontFace: BODY, fontSize: 13, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
+  title(s, "Beyond one PHC: all of Uttar Pradesh");
+  s.addImage({ path: shot("map_district"), x: 0.5, y: 1.3, w: 5.2, h: 2.33, shadow: shadow() });
+  s.addText("Barabanki: every DH, CHC, PHC and Health & Wellness Centre at its real location, coloured by stock risk", { x: 0.5, y: 3.7, w: 5.2, h: 0.5, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
+  const stats = [["3,948", "public health facilities mapped (OpenStreetMap)"], ["75", "districts, with villages far from care"], ["84", "expiry transfers suggested in Barabanki alone"]];
+  stats.forEach(([n, l], i) => {
+    const y = 1.3 + i * 1.02;
+    card(s, 6.0, y, 3.55, 0.88);
+    s.addText([{ text: n + "  ", options: { fontFace: HEAD, fontSize: 24, bold: true, color: TEAL } }, { text: l, options: { fontSize: 11.5, color: MUTED } }],
+      { x: 6.2, y, w: 3.25, h: 0.88, fontFace: BODY, margin: 0, isTextBox: true, valign: "middle" });
   });
-  s.addText("The moment we fix: the end of a busy day, register on the desk, DVDMS still open.", { x: 0.5, y: 4.7, w: 9, h: 0.4, fontFace: BODY, fontSize: 14, italic: true, color: TEAL, margin: 0, isTextBox: true });
-  s.addNotes("Three people. The pharmacist who double-enters. The district officer who plans from an untrustworthy screen. And the patient who finds the shelf empty. Our wedge is the end-of-day moment when the register is on the desk and DVDMS is still not updated.");
+  s.addText([{ text: "Phase 3, live: ", options: { bold: true, color: TEAL } }, { text: "batches that would expire unused are matched to the nearest facility running short; the district officer approves each move and downloads transfer orders.", options: { color: INK } }],
+    { x: 0.5, y: 4.4, w: 9.05, h: 0.7, fontFace: BODY, fontSize: 13, margin: 0, isTextBox: true, valign: "top" });
+  s.addNotes("We scaled from one district to the whole state. These are real facility locations from OpenStreetMap: 3,948 public facilities across 75 districts. For facilities that have not scanned a register the stock is simulated, and we say so on screen. Phase 3 is live: the app finds medicine that will expire before it can be used and suggests moving it to a nearby facility that is running short, with the district officer approving every move.");
 }
 
 // ---------- 4. Solution flow ----------
@@ -149,53 +147,53 @@ const dot = (s, x, y, d, color, txt) => {
   const s = pres.addSlide();
   s.background = { color: PALE };
   title(s, "Does it work? Measured, with the misses.");
+  const L = ["Easy (6)", "Medium (4)", "Hard (2)", "Messy (10)"];
   s.addChart(pres.charts.BAR, [
-    { name: "Quantities", labels: ["Easy (6 pages)", "Medium (4)", "Hard (2)"], values: [100, 100, 100] },
-    { name: "Batch", labels: ["Easy (6 pages)", "Medium (4)", "Hard (2)"], values: [100, 100, 89.3] },
-    { name: "Expiry", labels: ["Easy (6 pages)", "Medium (4)", "Hard (2)"], values: [100, 100, 85.7] },
+    { name: "Quantities", labels: L, values: [100, 100, 100, 92.9] },
+    { name: "Batch", labels: L, values: [100, 100, 89.3, 51.4] },
+    { name: "Expiry", labels: L, values: [100, 100, 85.7, 73.4] },
   ], {
-    x: 0.4, y: 1.25, w: 5.4, h: 3.55, barDir: "col", barGrouping: "clustered", chartColors: [TEAL, SKY, AMBER],
-    showTitle: true, title: "Cell accuracy by page difficulty (%)", titleFontSize: 12, titleColor: INK, titleFontFace: BODY,
-    showValue: true, dataLabelFontSize: 9, dataLabelColor: INK, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0",
+    x: 0.4, y: 1.2, w: 5.5, h: 3.6, barDir: "col", barGrouping: "clustered", chartColors: [TEAL, SKY, AMBER],
+    showTitle: true, title: "Cell accuracy by page type (%), 22 synthetic pages", titleFontSize: 12, titleColor: INK, titleFontFace: BODY,
+    showValue: true, dataLabelFontSize: 8, dataLabelColor: INK, dataLabelPosition: "outEnd", dataLabelFormatCode: "0",
     valAxisMinVal: 0, valAxisMaxVal: 110, valAxisMajorUnit: 20, valAxisLabelFontSize: 10, catAxisLabelFontSize: 10, valAxisLabelColor: MUTED, catAxisLabelColor: MUTED,
     valGridLine: { color: LINE, size: 0.75 }, catGridLine: { style: "none" }, showLegend: true, legendPos: "b", legendFontSize: 10, legendColor: MUTED,
   });
-  card(s, 6.05, 1.3, 3.45, 3.5);
+  card(s, 6.1, 1.25, 3.45, 3.6);
   s.addText([
-    { text: "168 lines · 12 pages", options: { fontFace: HEAD, fontSize: 18, bold: true, color: TEAL, breakLine: true } },
-    { text: "Drug names and every quantity: 100%.", options: { fontSize: 12, color: INK, breakLine: true } },
+    { text: "Drug names: 100% everywhere", options: { fontFace: HEAD, fontSize: 15, bold: true, color: TEAL, breakLine: true } },
+    { text: "Quantities, which drive stock-out numbers: 100% on clean pages, 93% on messy ones.", options: { fontSize: 11, color: INK, breakLine: true } },
     { text: " ", options: { fontSize: 5, breakLine: true } },
-    { text: "The 7 misses", options: { bold: true, fontSize: 12.5, color: INK, breakLine: true } },
-    { text: "All on hard pages, single digits in batch or expiry. Gemini scored every one at 0.95, so its confidence did not catch them.", options: { fontSize: 11.5, color: MUTED, breakLine: true } },
+    { text: "The weak spot", options: { bold: true, fontSize: 12, color: INK, breakLine: true } },
+    { text: "Small cursive batch codes and expiry dates on messy pages (G/U, E/C, 3/8). Gemini's own confidence caught only 4 of 104 wrong values.", options: { fontSize: 11, color: MUTED, breakLine: true } },
     { text: " ", options: { fontSize: 5, breakLine: true } },
-    { text: "Our fix", options: { bold: true, fontSize: 12.5, color: INK, breakLine: true } },
-    { text: "Cross-check against batches DVDMS already lists: 7 of 7 flagged, 0 false alarms on 161 correct lines.", options: { fontSize: 11.5, color: MUTED } },
-  ], { x: 6.25, y: 1.4, w: 3.1, h: 3.3, fontFace: BODY, margin: 0, isTextBox: true, valign: "top" });
-  s.addText("Synthetic handwritten pages; real registers will be messier. The demo DVDMS is a mock seeded with the correct batches, so the cross-check shows the mechanism, not a field catch rate.", { x: 0.5, y: 4.92, w: 9, h: 0.5, fontFace: BODY, fontSize: 10, italic: true, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
-  s.addNotes("These numbers are from 12 synthetic pages, 168 lines, checked cell by cell against an answer key. Quantities, which drive the stock-out numbers, were perfect. All seven misses were single-digit errors in batch or expiry on the two hardest pages, and the model was equally confident on them, so we added a cross-check against the batches DVDMS already lists. We are upfront that the demo DVDMS is a mock, so this demonstrates the mechanism.");
+    { text: "Our fix", options: { bold: true, fontSize: 12, color: INK, breakLine: true } },
+    { text: "DVDMS batch cross-check + balance check flagged 63 of 74 lines with errors for the pharmacist, 0 false alarms.", options: { fontSize: 11, color: MUTED } },
+  ], { x: 6.28, y: 1.35, w: 3.12, h: 3.45, fontFace: BODY, margin: 0, isTextBox: true, valign: "top" });
+  s.addText("Messy pages: ruled notebooks, no column lines, cursive, corrections, Hindi numerals, stains, folds, blur. All pages synthetic; the demo DVDMS is a mock seeded with correct batches, so the cross-check shows the mechanism, not a field catch rate.", { x: 0.5, y: 4.95, w: 9, h: 0.5, fontFace: BODY, fontSize: 9.5, italic: true, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
+  s.addNotes("We measured honestly on 22 synthetic pages, including 10 deliberately messy ones. Medicine names were always right. Quantities stayed above 90 percent even on messy pages. The weak spot is small cursive batch codes and expiry dates, and the model does not know when it is wrong, so we cross-check against the batches DVDMS already has and the balance of each line. That flagged 63 of the 74 lines that had any error. Every line is confirmed by the pharmacist before anything is used.");
 }
 
-// ---------- 8. When it's wrong ----------
+// ---------- 8. Assistant + mobile ----------
 {
   const s = pres.addSlide();
   s.background = { color: WHITE };
-  title(s, "When it is wrong, a person catches it");
-  const items = [
-    ["Unsure cell", "Highlighted yellow; the pharmacist confirms or edits it.", "F0A23B"],
-    ["Numbers do not add up", "Opening + received − issued ≠ closing turns red.", "E5484D"],
-    ["Batch looks off", "Compared with DVDMS batches; “looks like BC7284” prompts a check.", "3B9CE2"],
-    ["AI unavailable", "Clear message, nothing lost; sample pages work without the API.", "167F71"],
-    ["Alert wording", "Written only from computed numbers; the pharmacist sends it.", "167F71"],
-    ["Upload to DVDMS", "Never automatic: the file is downloaded and reviewed first.", "0B3F39"],
-  ];
-  items.forEach(([h, d, c], i) => {
-    const x = 0.5 + (i % 3) * 3.05, y = 1.4 + Math.floor(i / 3) * 1.75;
-    card(s, x, y, 2.85, 1.55);
-    dot(s, x + 0.2, y + 0.2, 0.34, c);
-    s.addText(h, { x: x + 0.65, y: y + 0.15, w: 2.05, h: 0.45, fontFace: HEAD, fontSize: 13.5, bold: true, color: INK, margin: 0, isTextBox: true, valign: "middle" });
-    s.addText(d, { x: x + 0.2, y: y + 0.7, w: 2.5, h: 0.78, fontFace: BODY, fontSize: 11.5, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
+  title(s, "Ask it anything. Use it on any phone.");
+  s.addImage({ path: shot("chat"), x: 0.5, y: 1.25, w: 2.7, h: 3.9, shadow: shadow() });
+  s.addText([
+    { text: "Gemini assistant with function calling", options: { bold: true, fontSize: 14, color: INK, breakLine: true } },
+    { text: "Looks up districts, facilities, nearby stock and transfer plans before answering, so it never invents a number. Replies in Hindi, Hinglish or English. Voice input.", options: { fontSize: 11.5, color: MUTED } },
+  ], { x: 3.4, y: 1.25, w: 2.6, h: 2.2, fontFace: BODY, margin: 0, isTextBox: true, valign: "top" });
+  s.addText([
+    { text: "Installable phone app (PWA)", options: { bold: true, fontSize: 14, color: INK, breakLine: true } },
+    { text: "Open the link in Chrome, tap Install. Own icon, full screen, Scan opens the camera. No app store needed.", options: { fontSize: 11.5, color: MUTED } },
+  ], { x: 3.4, y: 3.35, w: 2.6, h: 1.8, fontFace: BODY, margin: 0, isTextBox: true, valign: "top" });
+  ["11_mobile_home", "13_mobile_map"].forEach((n, i) => {
+    s.addImage({ path: shot(n), x: 6.25 + i * 1.7, y: 1.25, w: 1.55, h: 2.76, shadow: shadow() });
   });
-  s.addNotes("Our failure contract. A wrong reading costs the pharmacist a tap, not a wrong stock number in the system. Nothing goes to DVDMS automatically.");
+  s.addText("Phone views: home and district map", { x: 6.25, y: 4.1, w: 3.3, h: 0.3, fontFace: BODY, fontSize: 10, color: MUTED, margin: 0, isTextBox: true });
+  s.addText("Safeguards: unsure cells yellow · balance errors red · batch cross-check · nothing uploaded automatically · officer approves every transfer.", { x: 6.25, y: 4.45, w: 3.3, h: 0.75, fontFace: BODY, fontSize: 10.5, color: TEAL, bold: true, margin: 0, isTextBox: true, valign: "top" });
+  s.addNotes("Two features for real users. The assistant is Gemini with five tools over the app's data; here it answered a Hindi question about Barabanki by calling the district tool. And the whole app installs on a pharmacist's phone from the browser, with the camera for scanning. Every step keeps a human in charge.");
 }
 
 // ---------- 9. Deployable ----------
@@ -223,7 +221,7 @@ const dot = (s, x, y, d, color, txt) => {
   s.background = { color: WHITE };
   title(s, "Built to travel across states and BRICS nations");
   const cols = [
-    ["Language", "Phase 2: alerts and screens in the PHC's state language.", "தமிழ்  తెలుగు  বাংলা  मराठी  ଓଡ଼ିଆ  ಕನ್ನಡ  ગુજરાતી  മലയാളം  ਪੰਜਾਬੀ", SKY],
+    ["Language", "Phase 2, live: district alerts in 16 Indian languages; UP defaults to Hindi, Urdu, English.", "हिन्दी  اردو  भोजपुरी  தமிழ்  తెలుగు  বাংলা  मराठी  ଓଡ଼ିଆ  ಕನ್ನಡ", SKY],
     ["Register templates", "Layout differs by state; one template file per register lets Gemini read a new format without retraining.", "column names · units · date style", TEAL],
     ["Medicine catalogue", "Each country brings its own essential-medicines list and local aliases.", "NLEM (India) → other national lists", AMBER],
   ];
@@ -237,8 +235,8 @@ const dot = (s, x, y, d, color, txt) => {
   });
   card(s, 0.5, 4.2, 9.05, 0.95, PALE);
   s.addText([
-    { text: "Phase 3: expiry redistribution. ", options: { bold: true, color: TEAL } },
-    { text: "Batches close to expiry are routed to the nearby clinic or store that urgently needs them, with the district officer approving every move.", options: { color: MUTED } },
+    { text: "Already statewide: ", options: { bold: true, color: TEAL } },
+    { text: "3,948 facilities in all 75 UP districts are on the map today. A new state needs its facility list, register template and languages, not new code.", options: { color: MUTED } },
   ], { x: 0.7, y: 4.25, w: 8.65, h: 0.85, fontFace: BODY, fontSize: 13, margin: 0, isTextBox: true, valign: "middle" });
   s.addNotes("Scaling is configuration, not rebuilding: language, register template and medicine catalogue are separate files. Phase two adds state languages. Phase three turns the near-expiry batches we already detect into transfers, always with officer approval.");
 }
@@ -252,11 +250,11 @@ const dot = (s, x, y, d, color, txt) => {
   const c = (t, o = {}) => ({ text: t, options: { fontFace: BODY, fontSize: 11.5, color: INK, ...o } });
   const rows = [
     [{ text: "Criterion", options: hdr }, { text: "Weight", options: { ...hdr, align: "center" } }, { text: "Evidence you can open", options: hdr }],
-    [c("AI / Technical execution"), c("25%", { align: "center", bold: true }), c("Gemini reads handwriting to JSON, model failover, OpenCV clean-up, evaluation script and results")],
+    [c("AI / Technical execution"), c("25%", { align: "center", bold: true }), c("Gemini reads handwriting to JSON; function-calling assistant; multilingual alerts; OpenCV clean-up; 22-page evaluation")],
     [c("Problem–solution fit"), c("20%", { align: "center", bold: true }), c("Targets the audit-documented gap: DVDMS vs registers, at the pharmacist's end-of-day moment")],
-    [c("Depth & reach across India"), c("20%", { align: "center", bold: true }), c("Language, register template and medicine catalogue as separate configs; Phase 2 languages")],
-    [c("Deployability & scalability"), c("20%", { align: "center", bold: true }), c("No new hardware; DVDMS bulk-entry output; four-week pilot plan; Dockerfile for Cloud Run")],
-    [c("Impact potential"), c("15%", { align: "center", bold: true }), c("Attacks the stock-out and expiry-loss cycle at the source; reported losses in crores")],
+    [c("Depth & reach across India"), c("20%", { align: "center", bold: true }), c("All 75 UP districts, 3,948 facilities, villages far from care; 16 languages; config-driven for other states")],
+    [c("Deployability & scalability"), c("20%", { align: "center", bold: true }), c("Runs on Cloud Run; installable phone app; DVDMS bulk-entry output; four-week pilot plan")],
+    [c("Impact potential"), c("15%", { align: "center", bold: true }), c("Stock-outs and expiry losses (reported in crores) at the source; expiry transfers with officer approval")],
   ];
   s.addTable(rows, { x: 0.5, y: 1.3, w: 9.05, colW: [2.6, 0.9, 5.55], rowH: [0.38, 0.62, 0.62, 0.62, 0.62, 0.62], border: { type: "solid", color: LINE, pt: 0.75 }, fill: { color: WHITE }, valign: "middle", margin: [0.04, 0.1, 0.04, 0.1] });
   s.addText("Deliverables: source code repository · demo video (3–5 min) · this deck · live prototype link.", { x: 0.5, y: 4.85, w: 9, h: 0.4, fontFace: BODY, fontSize: 12, color: MUTED, margin: 0, isTextBox: true });
