@@ -1,0 +1,125 @@
+{
+ "file": "messy_10.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Masauli",
+ "phc_id": "P05",
+ "page_date": "2026-09-15",
+ "rows": [
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "MF2076",
+   "expiry": "2028-02",
+   "opening": 358,
+   "received": 472,
+   "issued": 57,
+   "closing": 773
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metrogyl",
+   "batch": "KP7734",
+   "expiry": "2028-07",
+   "opening": 613,
+   "received": 0,
+   "issued": 51,
+   "closing": 562
+  },
+  {
+   "med_code": "M014",
+   "written_name": "Pantoprazole",
+   "batch": "WU4942",
+   "expiry": "2027-03",
+   "opening": 1328,
+   "received": 0,
+   "issued": 107,
+   "closing": 1221
+  },
+  {
+   "med_code": "M006",
+   "written_name": "मेटफॉर्मिन",
+   "batch": "GB1204",
+   "expiry": "2028-06",
+   "opening": 2738,
+   "received": 0,
+   "issued": 123,
+   "closing": 2615
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "TW1148",
+   "expiry": "2028-07",
+   "opening": 2051,
+   "received": 0,
+   "issued": 77,
+   "closing": 1974
+  },
+  {
+   "med_code": "M004",
+   "written_name": "एजिथ्रोमाइसिन",
+   "batch": "JC3225",
+   "expiry": "2026-10",
+   "opening": 266,
+   "received": 0,
+   "issued": 32,
+   "closing": 234
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxycycline",
+   "batch": "HV7932",
+   "expiry": "2028-04",
+   "opening": 573,
+   "received": 0,
+   "issued": 31,
+   "closing": 542
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "NF5571",
+   "expiry": "2026-11",
+   "opening": 182,
+   "received": 0,
+   "issued": 22,
+   "closing": 160
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "GT5149",
+   "expiry": "2028-07",
+   "opening": 5634,
+   "received": 3848,
+   "issued": 216,
+   "closing": 9266
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "DA3783",
+   "expiry": "2028-06",
+   "opening": 2460,
+   "received": 0,
+   "issued": 94,
+   "closing": 2366
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan 50",
+   "batch": "JS2159",
+   "expiry": "2027-06",
+   "opening": 1578,
+   "received": 0,
+   "issued": 47,
+   "closing": 1531
+  }
+ ],
+ "features": {
+  "layout": "grid",
+  "hindi_digits": false,
+  "blank_word": "-",
+  "corrections": 2
+ }
+}

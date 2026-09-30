@@ -46,6 +46,14 @@ Rules:
 - Confidence is 0 to 1 per group of fields (drug, batch, expiry, qty). Be honest: use below 0.6 when a stroke is ambiguous, crossed out, or smudged.
 - If a value was crossed out and rewritten, use the rewritten value and add a short note.
 - page_date is the date written at the top of the page as YYYY-MM-DD, else null.
+- Real registers are messy. The page may be a plain ruled notebook with hand-drawn or no column lines, and
+  handwritten rows may slope across the ruled lines: follow each handwritten row from left to right.
+- Column names vary (e.g. Open/Opening/OB, Recd/Received/Rec, Issue/Issued/Consumed, Bal/Closing/CB).
+- In the Received column, "nil", "-", "--", "0" or an empty cell all mean 0.
+- Expiry can be written as 07/27, 7-27, 7/2027, Jul 27 or "Exp 07/27": always return YYYY-MM.
+- If a number is struck through, crossed out or overwritten and another value is written next to or below it,
+  use the NEW value and add a note. Never add the old and new values together.
+- Devanagari numerals (०१२३४५६७८९) must be converted to Latin digits.
 """
 
 

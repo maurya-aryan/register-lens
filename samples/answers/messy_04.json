@@ -1,0 +1,105 @@
+{
+ "file": "messy_04.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Siddhaur",
+ "phc_id": "P06",
+ "page_date": "2026-09-29",
+ "rows": [
+  {
+   "med_code": "M012",
+   "written_name": "Ciprofloxacin",
+   "batch": "KM4229",
+   "expiry": "2028-02",
+   "opening": 294,
+   "received": 0,
+   "issued": 51,
+   "closing": 243
+  },
+  {
+   "med_code": "M002",
+   "written_name": "O.R.S",
+   "batch": "GE4337",
+   "expiry": "2027-12",
+   "opening": 956,
+   "received": 0,
+   "issued": 27,
+   "closing": 929
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepiride",
+   "batch": "PC5568",
+   "expiry": "2028-03",
+   "opening": 743,
+   "received": 487,
+   "issued": 27,
+   "closing": 1203
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "BD3969",
+   "expiry": "2028-01",
+   "opening": 630,
+   "received": 0,
+   "issued": 16,
+   "closing": 614
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Diclofenac",
+   "batch": "PE3232",
+   "expiry": "2027-07",
+   "opening": 2092,
+   "received": 0,
+   "issued": 51,
+   "closing": 2041
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "AV4597",
+   "expiry": "2027-07",
+   "opening": 147,
+   "received": 78,
+   "issued": 4,
+   "closing": 221
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron Folic",
+   "batch": "SN9901",
+   "expiry": "2028-07",
+   "opening": 4322,
+   "received": 847,
+   "issued": 121,
+   "closing": 5048
+  },
+  {
+   "med_code": "M021",
+   "written_name": "क्लोरफेनिरामिन",
+   "batch": "HD1794",
+   "expiry": "2026-11",
+   "opening": 1081,
+   "received": 0,
+   "issued": 31,
+   "closing": 1050
+  },
+  {
+   "med_code": "M027",
+   "written_name": "Omep",
+   "batch": "DL4085",
+   "expiry": "2026-10",
+   "opening": 1121,
+   "received": 0,
+   "issued": 69,
+   "closing": 1052
+  }
+ ],
+ "features": {
+  "layout": "noline",
+  "hindi_digits": true,
+  "blank_word": "-",
+  "corrections": 2
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "file": "messy_06.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Nindaura",
+ "phc_id": "P03",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M009",
+   "written_name": "आयरन फोलिक",
+   "batch": "EJ3160",
+   "expiry": "2027-07",
+   "opening": 1127,
+   "received": 0,
+   "issued": 149,
+   "closing": 978
+  },
+  {
+   "med_code": "M007",
+   "written_name": "Amlodipine",
+   "batch": "AL4077",
+   "expiry": "2027-01",
+   "opening": 2084,
+   "received": 0,
+   "issued": 154,
+   "closing": 1930
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan 50",
+   "batch": "KD7368",
+   "expiry": "2027-09",
+   "opening": 249,
+   "received": 0,
+   "issued": 58,
+   "closing": 191
+  },
+  {
+   "med_code": "M001",
+   "written_name": "PCM 500",
+   "batch": "ME6049",
+   "expiry": "2028-03",
+   "opening": 6388,
+   "received": 0,
+   "issued": 216,
+   "closing": 6172
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibu",
+   "batch": "KM8471",
+   "expiry": "2026-12",
+   "opening": 1663,
+   "received": 0,
+   "issued": 55,
+   "closing": 1608
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "WP3659",
+   "expiry": "2027-09",
+   "opening": 71,
+   "received": 0,
+   "issued": 3,
+   "closing": 68
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "GB1009",
+   "expiry": "2026-12",
+   "opening": 1275,
+   "received": 691,
+   "issued": 25,
+   "closing": 1941
+  },
+  {
+   "med_code": "M010",
+   "written_name": "Alben",
+   "batch": "EP4384",
+   "expiry": "2027-06",
+   "opening": 934,
+   "received": 0,
+   "issued": 31,
+   "closing": 903
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "KE9816",
+   "expiry": "2028-07",
+   "opening": 1765,
+   "received": 0,
+   "issued": 96,
+   "closing": 1669
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "LC7212",
+   "expiry": "2028-09",
+   "opening": 1279,
+   "received": 0,
+   "issued": 68,
+   "closing": 1211
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Ciplox",
+   "batch": "GW4755",
+   "expiry": "2028-06",
+   "opening": 345,
+   "received": 0,
+   "issued": 56,
+   "closing": 289
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "LV7639",
+   "expiry": "2028-08",
+   "opening": 305,
+   "received": 0,
+   "issued": 17,
+   "closing": 288
+  }
+ ],
+ "features": {
+  "layout": "ruled",
+  "hindi_digits": false,
+  "blank_word": "nil",
+  "corrections": 2
+ }
+}
