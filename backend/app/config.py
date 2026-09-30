@@ -24,4 +24,6 @@ READ_MODELS = [m for m in os.environ.get(
 PRO_MODEL = os.environ.get("PRO_MODEL", "gemini-pro-latest")
 TEXT_MODELS = [m for m in os.environ.get(
     "TEXT_MODELS", "gemini-3.1-flash-lite-preview,gemini-3.5-flash-lite,gemini-3.5-flash,gemini-3-flash-preview").split(",") if m]
+CHAT_MODELS = [m for m in os.environ.get(
+    "CHAT_MODELS", "gemini-3.5-flash,gemini-3-flash-preview,gemini-3.1-flash-lite-preview,gemini-3.5-flash-lite,gemini-3.8-flash").split(",") if m]
 LOW_CONF = 0.75

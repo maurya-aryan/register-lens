@@ -25,12 +25,36 @@ class Medicine(SQLModel, table=True):
 
 
 class PHC(SQLModel, table=True):
+    """Any public health facility (demo PHCs P01-P12 plus all mapped UP facilities F#####)."""
     id: str = Field(primary_key=True)
     name: str
     block: str
-    district: str
+    district: str = Field(index=True)
     state: str
     load: float
+    kind: str = "PHC"
+    lat: Optional[float] = None
+    lon: Optional[float] = None
+    demo: bool = False
+    village: str = ""
+
+
+class RegisterTruth(SQLModel, table=True):
+    """Latest confirmed register reading per facility and medicine (from a scan)."""
+    id: Optional[int] = Field(default=None, primary_key=True)
+    phc_id: str = Field(index=True)
+    med_code: str
+    batch: str = ""
+    expiry: str = ""
+    closing: int
+    daily: int
+    created: str
+
+
+class TransferDecision(SQLModel, table=True):
+    transfer_id: str = Field(primary_key=True)
+    decision: str  # approved | rejected
+    created: str
 
 
 class DvdmsStock(SQLModel, table=True):
@@ -95,7 +119,7 @@ def seed(force: bool = False):
         if s.exec(select(Medicine)).first() and not force:
             return
         if force:
-            for model in (DvdmsStock, PHC, Medicine, Submission):
+            for model in (DvdmsStock, PHC, Medicine, Submission, RegisterTruth, TransferDecision):
                 for row in s.exec(select(model)).all():
                     s.delete(row)
             s.commit()
@@ -103,8 +127,20 @@ def seed(force: bool = False):
         for code, name, strength, form, unit, aliases, base in MEDICINES:
             s.add(Medicine(code=code, name=name, strength=strength, form=form, unit=unit,
                            aliases=json.dumps(aliases, ensure_ascii=False), base_daily_issue=base))
+        from .catalog import DEMO_COORDS, DEMO_DUPLICATES
+        from .config import DATA_DIR
         for pid, name, block, district, state, load in PHCS:
-            s.add(PHC(id=pid, name=name, block=block, district=district, state=state, load=load))
+            lat, lon = DEMO_COORDS.get(pid, (None, None))
+            s.add(PHC(id=pid, name=name, block=block, district=district, state=state, load=load,
+                      kind="PHC", lat=lat, lon=lon, demo=True))
+        fac_file = DATA_DIR / "up_facilities.json"
+        if fac_file.exists():
+            kload = {"HWC": 0.3, "PHC": 1.0, "CHC": 1.8, "DH": 3.5}
+            for f in json.loads(fac_file.read_text(encoding="utf-8")):
+                if f["district"] == "Barabanki" and f["name"] in DEMO_DUPLICATES:
+                    continue
+                s.add(PHC(id=f["id"], name=f["name"], block="", district=f["district"], state="Uttar Pradesh",
+                          load=kload[f["kind"]], kind=f["kind"], lat=f["lat"], lon=f["lon"], village=f.get("village", "")))
         today = date.today()
         for pid, *_rest, load in PHCS:
             for code, name, strength, form, unit, aliases, base in MEDICINES:

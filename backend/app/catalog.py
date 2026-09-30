@@ -52,3 +52,23 @@ PHCS = [
     ("P11", "PHC Dariyabad", "Dariyabad", "Barabanki", "Uttar Pradesh", 0.9),
     ("P12", "PHC Harakh", "Harakh", "Barabanki", "Uttar Pradesh", 0.75),
 ]
+
+# Indicative unit prices in INR (order of magnitude of generic / Jan Aushadhi prices), used only to
+# estimate the value of stock saved by redistribution. Not an official price list.
+PRICES = {
+    "M001": 0.5, "M002": 5.0, "M003": 2.5, "M004": 7.0, "M005": 0.4, "M006": 0.6, "M007": 0.5, "M008": 0.6,
+    "M009": 0.3, "M010": 3.0, "M011": 0.8, "M012": 1.5, "M013": 0.6, "M014": 1.0, "M015": 0.3, "M016": 0.4,
+    "M017": 0.8, "M018": 0.8, "M019": 25.0, "M020": 0.8, "M021": 0.2, "M022": 1.2, "M023": 0.8, "M024": 1.0,
+    "M025": 30.0, "M026": 0.8, "M027": 0.8, "M028": 0.6,
+}
+
+# Approximate map positions for demo PHCs whose facility is not mapped in OpenStreetMap (block HQ area).
+DEMO_COORDS = {
+    "P01": (27.172785, 81.217103), "P02": (26.612745, 81.354302), "P03": (27.03, 81.02),
+    "P04": (27.017244, 81.175794), "P05": (26.978474, 81.32096), "P06": (26.79, 81.36),
+    "P07": (26.82, 81.44), "P08": (27.195277, 81.340733), "P09": (26.93, 81.21),
+    "P10": (27.09, 81.49), "P11": (26.872152, 81.549568), "P12": (26.855683, 81.231888),
+}
+# OSM facilities that are the same place as a demo PHC (hidden to avoid duplicates on the map)
+DEMO_DUPLICATES = {"CHC Fatehpur", "CHC Haidergarh", "CHC, Deva", "Primary Health Centre, Masauli",
+                   "CHC,Suratganj", "PHC-Dariyabad", "PHC-Harakh"}

@@ -14,14 +14,15 @@ export default function Footer() {
         <div className="space-y-2">
           <div className="font-extrabold text-ink">Explore</div>
           <Link className="block text-muted hover:text-brand-700" to="/scan">Scan a register</Link>
-          <Link className="block text-muted hover:text-brand-700" to="/dashboard">District view</Link>
+          <Link className="block text-muted hover:text-brand-700" to="/map">UP map</Link>
+          <Link className="block text-muted hover:text-brand-700" to="/redistribute">Expiry transfers</Link>
           <Link className="block text-muted hover:text-brand-700" to="/#how">How it works</Link>
           <Link className="block text-muted hover:text-brand-700" to="/#roadmap">Roadmap</Link>
         </div>
         <div className="space-y-2">
           <div className="font-extrabold text-ink">Good to know</div>
           <p className="text-muted leading-relaxed">This is a prototype. All stock data and register pages shown are <b>synthetic samples</b>. It is not an official government portal and is not connected to the real DVDMS.</p>
-          <p className="text-muted">Powered by Google Gemini.</p>
+          <p className="text-muted">Powered by Google Gemini. Maps © OpenStreetMap contributors, © CARTO.</p>
         </div>
       </div>
     </footer>

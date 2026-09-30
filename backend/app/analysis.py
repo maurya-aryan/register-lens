@@ -161,6 +161,13 @@ def dvdms_batches(session: Session, phc_id: str) -> Dict[str, List[tuple]]:
     out: Dict[str, List[tuple]] = {}
     for s in session.exec(select(DvdmsStock).where(DvdmsStock.phc_id == phc_id)).all():
         out.setdefault(s.med_code, []).append((s.batch, s.expiry))
+    if out:
+        return out
+    fac = session.get(PHC, phc_id)
+    if fac:
+        from .stock import simulated
+        for code, v in simulated(fac.id, fac.kind, fac.load).items():
+            out[code] = [(b["batch"], b["expiry"][:7]) for b in v["batches"]]
     return out
 
 
@@ -168,9 +175,9 @@ def match_phc(session: Session, written: Optional[str]) -> Optional[str]:
     """Pick the health centre from the facility name written on the page."""
     if not written:
         return None
-    phcs = session.exec(select(PHC)).all()
+    phcs = session.exec(select(PHC).where(PHC.demo == True)).all()  # noqa: E712
     best = process.extractOne(written.lower(), [p.name.lower() for p in phcs], scorer=fuzz.WRatio)
-    if best and best[1] >= 88:
+    if best and best[1] >= 90:
         return phcs[best[2]].id
     return None
 
@@ -178,6 +185,8 @@ def match_phc(session: Session, written: Optional[str]) -> Optional[str]:
 def reconcile(session: Session, phc_id: str, rows: List[dict]) -> dict:
     phc = session.get(PHC, phc_id)
     meds = {m.code: m for m in session.exec(select(Medicine)).all()}
+    from .stock import facility_stock
+    fstock = facility_stock(session, phc) if phc else {}
     items = []
     for r in rows:
         code = r.get("med_code")
@@ -185,8 +194,8 @@ def reconcile(session: Session, phc_id: str, rows: List[dict]) -> dict:
             continue
         m = meds[code]
         stock = session.exec(select(DvdmsStock).where(DvdmsStock.phc_id == phc_id, DvdmsStock.med_code == code)).all()
-        dvdms_qty = sum(s.qty for s in stock)
-        baseline = max(1, round(m.base_daily_issue * (phc.load if phc else 1.0)))
+        dvdms_qty = sum(s.qty for s in stock) if stock else int(fstock.get(code, {}).get("dvdms", 0))
+        baseline = fstock.get(code, {}).get("daily") or max(1, round(m.base_daily_issue * (phc.load if phc else 1.0)))
         issued = r.get("issued") or 0
         daily = issued if issued > 0 else baseline
         closing = r["closing"]
@@ -221,7 +230,7 @@ def reconcile(session: Session, phc_id: str, rows: List[dict]) -> dict:
         "expiring": sum(1 for i in items if i["expiring_soon"]),
         "units_overstated": sum(max(0, i["drift"]) for i in items),
     }
-    return {"phc": {"id": phc.id, "name": phc.name, "district": phc.district, "state": phc.state} if phc else None,
+    return {"phc": {"id": phc.id, "name": phc.name, "district": phc.district, "state": phc.state, "kind": phc.kind} if phc else None,
             "items": items, "summary": summary}
 
 
@@ -266,30 +275,45 @@ def _fallback_alert(phc: dict, summary: dict, items: List[dict]) -> dict:
     return {"en": en, "hi": hi, "source": "template"}
 
 
+LANGUAGES = {
+    "hi": ("Hindi", "हिन्दी"), "en": ("English", "English"), "ur": ("Urdu", "اردو"), "bn": ("Bengali", "বাংলা"),
+    "ta": ("Tamil", "தமிழ்"), "te": ("Telugu", "తెలుగు"), "mr": ("Marathi", "मराठी"), "gu": ("Gujarati", "ગુજરાતી"),
+    "kn": ("Kannada", "ಕನ್ನಡ"), "ml": ("Malayalam", "മലയാളം"), "or": ("Odia", "ଓଡ଼ିଆ"), "pa": ("Punjabi", "ਪੰਜਾਬੀ"),
+    "as": ("Assamese", "অসমীয়া"), "ne": ("Nepali", "नेपाली"), "bho": ("Bhojpuri", "भोजपुरी"), "awa": ("Awadhi", "अवधी"),
+}
+STATE_LANGS = {"Uttar Pradesh": ["hi", "ur", "en"]}
+
 _ALERT_CACHE: dict = {}
 
 
-def write_alert(rec: dict) -> dict:
+def write_alert(rec: dict, langs: Optional[List[str]] = None) -> dict:
+    """Alert text per language code. Numbers come only from the reconciliation."""
     phc, items, summary = rec["phc"], rec["items"], rec["summary"]
+    langs = [l for l in (langs or ["hi", "en"]) if l in LANGUAGES] or ["hi", "en"]
     if not phc:
-        return {"en": "", "hi": "", "source": "none"}
-    ckey = json.dumps([phc["id"], [(i["med_code"], i["register_closing"], i["dvdms_qty"], i["status"]) for i in items]])
+        return {"texts": {}, "source": "none"}
+    ckey = json.dumps([phc["id"], langs, [(i["med_code"], i["register_closing"], i["dvdms_qty"], i["status"]) for i in items]])
     if ckey in _ALERT_CACHE:
         return _ALERT_CACHE[ckey]
     facts = [
         {k: i[k] for k in ("med_name", "register_closing", "dvdms_qty", "days_real", "days_dvdms", "status", "expiring_soon", "expiry")}
         for i in items if i["status"] != "ok" or i["expiring_soon"]
     ][:8]
+    lang_list = ", ".join(f'"{c}" = {LANGUAGES[c][0]} ({LANGUAGES[c][1]} script)' for c in langs)
     prompt = (
         "You write short, clear stock alerts from a PHC pharmacist to the District Drug Store Officer in India.\n"
         f"Facility: {phc['name']}, {phc['district']}, {phc['state']}.\n"
         f"Facts (use ONLY these numbers, do not invent any): {json.dumps(facts, ensure_ascii=False)}\n"
-        "Write the alert in English and in Hindi (Devanagari). Max 6 lines each. Start with the most urgent item. "
+        f"Write the same alert in each of these languages: {lang_list}. Use each language's own script; keep medicine "
+        "names recognisable (you may keep them in English). Max 6 lines each. Start with the most urgent item. "
         "State days of stock left according to the register vs what DVDMS shows. End with one polite action request.\n"
-        'Return JSON: {"en": "...", "hi": "..."}'
+        "Return a JSON object whose keys are exactly the language codes and values are the alert texts."
     )
     d, model = generate_json_text(prompt, 0.2)
-    if isinstance(d, dict) and d.get("en") and d.get("hi"):
-        _ALERT_CACHE[ckey] = {"en": d["en"], "hi": d["hi"], "source": f"gemini:{model}"}
-        return _ALERT_CACHE[ckey]
-    return _fallback_alert(phc, summary, items)
+    if isinstance(d, dict) and all(d.get(c) for c in langs):
+        out = {"texts": {c: d[c] for c in langs}, "source": f"gemini:{model}"}
+        _ALERT_CACHE[ckey] = out
+        return out
+    fb = _fallback_alert(phc, summary, items)
+    return {"texts": {c: fb[c] for c in langs if c in ("hi", "en")}, "source": "template",
+            "missing": [c for c in langs if c not in ("hi", "en")]}

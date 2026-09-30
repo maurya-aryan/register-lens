@@ -19,3 +19,7 @@ eval/eval.log
 scripts/hindi/_tmp.html
 docs/deck/render/
 docs/deck/node_modules/
+scripts/data/*.json
+scripts/data/*.csv
+scripts/data/*.log
+scripts/data/*.txt

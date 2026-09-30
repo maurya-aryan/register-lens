@@ -3,9 +3,10 @@ import { Link, useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Camera, UploadCloud, ImagePlus, Loader2, CheckCheck, AlertTriangle, ArrowRight, ArrowLeft, Download, Send,
-  FileSpreadsheet, Copy, RotateCcw, Truck, Sparkles, ChevronRight, Info,
+  FileSpreadsheet, Copy, RotateCcw, Truck, Sparkles, ChevronRight, Info, Languages, MapPin,
 } from "lucide-react";
-import { Alert, api, Phc, Recon, Row, Scan as ScanT, Flag } from "../api";
+import { Alert, api, Lang, Phc, Recon, Row, Scan as ScanT, Flag } from "../api";
+import { setChatContext } from "../components/ChatWidget";
 
 type Phase = "capture" | "reading" | "review" | "reconcile" | "sync";
 const STEPS: { k: Phase; label: string }[] = [
@@ -50,8 +51,8 @@ function recomputeFlags(r: Row): Flag[] {
 const numOrNull = (v: string) => (v.trim() === "" ? null : Number.isFinite(Number(v)) ? Math.round(Number(v)) : null);
 
 /* ------------------------------ CAPTURE ------------------------------ */
-function Capture({ phcs, phc, setPhc, onFile, onSample, samples, highlightSamples }: {
-  phcs: Phc[]; phc: string; setPhc: (v: string) => void; onFile: (f: File) => void; onSample: (n: string) => void;
+function Capture({ phcs, phc, setPhc, districts, district, setDistrict, onFile, onSample, samples, highlightSamples }: {
+  phcs: Phc[]; phc: string; setPhc: (v: string) => void; districts: string[]; district: string; setDistrict: (d: string) => void; onFile: (f: File) => void; onSample: (n: string) => void;
   samples: { name: string; url: string; thumb: string }[]; highlightSamples: boolean;
 }) {
   const [drag, setDrag] = useState(false);
@@ -79,12 +80,14 @@ function Capture({ phcs, phc, setPhc, onFile, onSample, samples, highlightSample
         </div>
         <div className="card p-5 flex flex-col gap-3">
           <label className="text-sm font-extrabold">Which health centre?</label>
-          <select value={phc} onChange={(e) => setPhc(e.target.value)} className="rounded-xl border border-line bg-white px-3 py-3 font-bold focus:outline-none focus:border-brand-400">
-            {phcs.map((p) => (<option key={p.id} value={p.id}>{p.name}</option>))}
+          <select value={district} onChange={(e) => setDistrict(e.target.value)} className="rounded-xl border border-line bg-white px-3 py-2.5 font-bold focus:outline-none focus:border-brand-400">
+            {districts.map((d) => (<option key={d} value={d}>{d} district</option>))}
           </select>
-          <div className="text-sm text-muted leading-relaxed">
-            {phcs.find((p) => p.id === phc)?.district} district, {phcs.find((p) => p.id === phc)?.state}. Sample data for the demo.
-          </div>
+          <select value={phc} onChange={(e) => setPhc(e.target.value)} className="rounded-xl border border-line bg-white px-3 py-2.5 font-bold focus:outline-none focus:border-brand-400">
+            {phcs.map((p) => (<option key={p.id} value={p.id}>{p.demo ? "★ " : ""}{p.name} · {p.kind}</option>))}
+          </select>
+          <div className="text-sm text-muted leading-relaxed flex gap-1.5"><MapPin size={15} className="shrink-0 mt-0.5 text-brand-600" />
+            {phcs.length} facilities in {district}, Uttar Pradesh. ★ = demo PHC with seeded DVDMS data.</div>
           <img src="/img/art/doctors-orders_a8sv.svg" alt="" aria-hidden className="hidden md:block h-28 mx-auto mt-1" />
           <div className="mt-auto rounded-2xl bg-brand-50 p-3 text-sm text-brand-800 flex gap-2"><Info size={18} className="shrink-0 mt-0.5" /> The pharmacist always reviews the result before anything is used.</div>
         </div>
@@ -328,15 +331,23 @@ function Reconcile({ rec, onNext, onBack }: { rec: Recon; onNext: () => void; on
 function Sync({ rec, rows, phcId, onAgain }: { rec: Recon; rows: Row[]; phcId: string; onAgain: () => void }) {
   const [alert, setAlert] = useState<Alert | null>(null);
   const [alertErr, setAlertErr] = useState("");
-  const [lang, setLang] = useState<"en" | "hi">("hi");
+  const [langs, setLangs] = useState<Lang[]>([]);
+  const [chosen, setChosen] = useState<string[]>(["hi", "ur", "en"]);
+  const [lang, setLang] = useState("hi");
   const [sent, setSent] = useState(false);
   const [dl, setDl] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [picker, setPicker] = useState(false);
+  const [gen, setGen] = useState(0);
+  useEffect(() => { api.languages().then((l) => { setLangs(l.languages); const d = l.state_defaults[rec.phc?.state ?? ""]; if (d) setChosen(d); }).catch(() => undefined); }, [rec]);
   useEffect(() => {
     let live = true;
-    api.alert(rec).then((a) => live && setAlert(a)).catch((e) => live && setAlertErr(e.message));
+    setAlert(null); setAlertErr("");
+    api.alert(rec, chosen).then((a) => { if (!live) return; setAlert(a); if (!a.texts[lang]) setLang(Object.keys(a.texts)[0] ?? "hi"); }).catch((e) => live && setAlertErr(e.message));
     return () => { live = false; };
-  }, [rec]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rec, gen]);
+  useEffect(() => { setChatContext({ last_reconciliation: { facility: rec.phc, summary: rec.summary, items: rec.items.slice(0, 12).map((i) => ({ med: i.med_name, days_real: i.days_real, days_dvdms: i.days_dvdms, status: i.status })) } }); }, [rec]);
   const download = async () => {
     const blob = await api.exportXlsx(phcId, rows);
     const a = document.createElement("a");
@@ -345,7 +356,8 @@ function Sync({ rec, rows, phcId, onAgain }: { rec: Recon; rows: Row[]; phcId: s
     a.click();
     setDl(true);
   };
-  const text = alert ? alert[lang] : "";
+  const text = alert?.texts[lang] ?? "";
+  const native = (c: string) => langs.find((l) => l.code === c)?.native ?? c;
   const expiring = rec.items.filter((i) => i.expiring_soon);
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
@@ -367,18 +379,32 @@ function Sync({ rec, rows, phcId, onAgain }: { rec: Recon; rows: Row[]; phcId: s
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-100 text-amber-700 grid place-items-center"><Sparkles /></div>
           <div className="text-xl font-extrabold mr-auto">District alert</div>
-          <div className="flex rounded-full bg-brand-50 p-1">
-            {(["hi", "en"] as const).map((l) => (
-              <button key={l} onClick={() => setLang(l)} className={`px-4 py-1.5 rounded-full text-sm font-extrabold transition-all ${lang === l ? "bg-white shadow text-brand-700" : "text-muted"}`}>{l === "hi" ? "हिन्दी" : "English"}</button>
-            ))}
-          </div>
+          <button onClick={() => setPicker(!picker)} className="chip !text-xs bg-brand-50 text-brand-800 cursor-pointer"><Languages size={13} /> {chosen.length} languages</button>
         </div>
-        <div className={`mt-4 rounded-2xl border border-line bg-brand-50/50 p-4 min-h-[190px] whitespace-pre-wrap leading-relaxed ${lang === "hi" ? "hi" : ""}`}>
+        {picker && (
+          <div className="mt-3 rounded-2xl border border-line p-3">
+            <div className="text-xs font-bold text-muted mb-2">Phase 2 · choose alert languages (UP default: Hindi, Urdu, English)</div>
+            <div className="flex flex-wrap gap-1.5">
+              {langs.map((l) => {
+                const on = chosen.includes(l.code);
+                return <button key={l.code} onClick={() => setChosen(on ? chosen.filter((c) => c !== l.code) : [...chosen, l.code].slice(0, 5))}
+                  className={`chip !text-xs cursor-pointer hi ${on ? "bg-brand-600 text-white" : "bg-white border border-line text-ink"}`}>{l.native}</button>;
+              })}
+            </div>
+            <button className="btn btn-primary !py-1.5 !px-4 text-sm mt-3" disabled={!chosen.length} onClick={() => { setPicker(false); setGen(gen + 1); }}><Sparkles size={14} /> Write in these languages</button>
+          </div>
+        )}
+        <div className="mt-3 flex flex-wrap gap-1 rounded-2xl bg-brand-50 p-1">
+          {Object.keys(alert?.texts ?? {}).map((c) => (
+            <button key={c} onClick={() => setLang(c)} className={`px-3.5 py-1.5 rounded-full text-sm font-extrabold transition-all hi ${lang === c ? "bg-white shadow text-brand-700" : "text-muted"}`}>{native(c)}</button>
+          ))}
+        </div>
+        <div dir={lang === "ur" ? "rtl" : "ltr"} className="mt-3 rounded-2xl border border-line bg-brand-50/50 p-4 min-h-[190px] whitespace-pre-wrap leading-relaxed hi">
           {alert ? text : alertErr ? <span className="text-rose-600">Could not write the alert: {alertErr}</span> : (
             <div className="space-y-3"><div className="shimmer h-4 rounded w-3/4" /><div className="shimmer h-4 rounded" /><div className="shimmer h-4 rounded w-5/6" /><div className="shimmer h-4 rounded w-2/3" /><div className="text-sm text-muted flex items-center gap-2"><Loader2 size={15} className="animate-spin" /> Gemini is writing the alert…</div></div>
           )}
         </div>
-        {alert && <div className="text-xs text-muted mt-1.5">Written by {alert.source.replace("gemini:", "Gemini · ")} from the numbers above, nothing invented.</div>}
+        {alert && <div className="text-xs text-muted mt-1.5">Written by {alert.source.replace("gemini:", "Gemini · ")} from the numbers above, nothing invented.{alert.missing?.length ? ` The AI is unavailable, so ${alert.missing.map(native).join(", ")} could not be written; showing Hindi/English templates.` : ""}</div>}
         <div className="mt-4 flex gap-3">
           <button className="btn btn-ghost" disabled={!alert} onClick={() => { navigator.clipboard?.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}><Copy size={17} /> {copied ? "Copied" : "Copy"}</button>
           <button className="btn btn-primary flex-1" disabled={!alert || sent} onClick={() => setSent(true)}><Send size={17} /> {sent ? "Sent to district (demo)" : "Send to district officer"}</button>
@@ -393,8 +419,9 @@ function Sync({ rec, rows, phcId, onAgain }: { rec: Recon; rows: Row[]; phcId: s
           <div className="h-12 w-12 rounded-2xl bg-amber-100 text-amber-700 grid place-items-center"><Truck /></div>
           <div className="flex-1 min-w-[240px]">
             <div className="font-extrabold">{expiring.length} batch{expiring.length > 1 ? "es" : ""} expire within 60 days <span className="chip bg-amber-100 text-amber-700 ml-2">Phase 3</span></div>
-            <p className="text-muted text-sm mt-1">Coming soon: send these to a nearby clinic or store that urgently needs them, with the district officer's approval. {expiring.map((e) => e.med_name.split(" ")[0]).join(", ")}.</p>
+            <p className="text-muted text-sm mt-1">Send these to a nearby facility that urgently needs them, with the district officer's approval: {expiring.map((e) => e.med_name.split(" ")[0]).join(", ")}.</p>
           </div>
+          <Link to={`/redistribute?district=${encodeURIComponent(rec.phc?.district ?? "Barabanki")}`} className="btn btn-primary !py-2.5"><Truck size={17} /> Plan transfers</Link>
         </div>
       )}
 
@@ -411,7 +438,9 @@ export default function ScanPage() {
   const [sp] = useSearchParams();
   const [phase, setPhase] = useState<Phase>("capture");
   const [phcs, setPhcs] = useState<Phc[]>([]);
-  const [phc, setPhc] = useState("P09");
+  const [phc, setPhc] = useState(sp.get("fid") || "P09");
+  const [districts, setDistricts] = useState<string[]>([]);
+  const [district, setDistrict] = useState(sp.get("district") || "Barabanki");
   const [samples, setSamples] = useState<{ name: string; url: string; thumb: string }[]>([]);
   const [scan, setScan] = useState<ScanT | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
@@ -422,15 +451,21 @@ export default function ScanPage() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    api.phcs().then((p) => { setPhcs(p); if (!p.find((x) => x.id === "P09") && p[0]) setPhc(p[0].id); }).catch((e) => setErr(e.message));
+    api.districts().then(setDistricts).catch(() => undefined);
     api.samples().then(setSamples).catch(() => undefined);
   }, []);
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "auto" }); }, [phase]);
 
+  useEffect(() => {
+    api.phcs(district).then((p) => { setPhcs(p); setPhc((cur) => (p.find((x) => x.id === cur) ? cur : p[0]?.id ?? cur)); }).catch((e) => setErr(e.message));
+  }, [district]);
+
   const begin = useCallback((s: ScanT) => {
     setScan(s); setRows(s.rows); setConfirmed(new Set());
-    if (s.phc_switched) setPhc(s.phc_id);
+    if (s.phc_switched || s.phc_id !== phc) {
+      api.phcs().then((all) => { const f = all.find((x) => x.id === s.phc_id); if (f) setDistrict(f.district); setPhc(s.phc_id); }).catch(() => setPhc(s.phc_id));
+    }
     setPhase("review");
   }, []);
   const fail = (e: Error) => { setErr(e.message); setPhase("capture"); };
@@ -473,7 +508,7 @@ export default function ScanPage() {
         )}
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {phase === "capture" && <Capture key="c" phcs={phcs} phc={phc} setPhc={setPhc} onFile={onFile} onSample={onSample} samples={samples} highlightSamples={sp.get("sample") === "1"} />}
+        {phase === "capture" && <Capture key="c" phcs={phcs} phc={phc} setPhc={setPhc} districts={districts} district={district} setDistrict={setDistrict} onFile={onFile} onSample={onSample} samples={samples} highlightSamples={sp.get("sample") === "1"} />}
         {phase === "reading" && <Reading key="r" preview={preview} />}
         {phase === "review" && scan && <Review key="v" scan={scan} phcName={phcs.find((p) => p.id === phc)?.name ?? ""} rows={rows} setRows={setRows} confirmed={confirmed} setConfirmed={setConfirmed} onNext={toReconcile} onBack={reset} />}
         {phase === "reconcile" && rec && <Reconcile key="x" rec={rec} onBack={() => setPhase("review")} onNext={() => setPhase("sync")} />}
