@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Scan from "./pages/Scan";
-import Dashboard from "./pages/Dashboard";
+import MapPage from "./pages/MapPage";
+import Redistribute from "./pages/Redistribute";
+import ChatWidget from "./components/ChatWidget";
 
 function ScrollTop() {
   const { pathname, hash } = useLocation();
@@ -24,11 +26,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/scan" element={<Scan />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/redistribute" element={<Redistribute />} />
+          <Route path="/dashboard" element={<Navigate to="/map" replace />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sqlmodel import Session, select
 
-from . import analysis, config, preprocess
+from . import analysis, chat, config, preprocess, stock
 from .db import PHC, DvdmsStock, Medicine, Submission, get_session, seed
 from .gemini_reader import read_register
 
@@ -32,8 +32,23 @@ def health():
 
 
 @app.get("/api/phcs")
-def phcs(session: Session = Depends(get_session)):
-    return [p.model_dump() for p in session.exec(select(PHC)).all()]
+def phcs(district: Optional[str] = None, q: Optional[str] = None, limit: int = 400, session: Session = Depends(get_session)):
+    """Facilities for pickers. Demo PHCs (with seeded DVDMS data) come first."""
+    query = select(PHC)
+    if district:
+        query = query.where(PHC.district == district)
+    rows = session.exec(query).all()
+    if q:
+        ql = q.lower()
+        rows = [r for r in rows if ql in r.name.lower() or ql in (r.village or "").lower()]
+    order = {"DH": 0, "CHC": 1, "PHC": 2, "HWC": 3}
+    rows.sort(key=lambda r: (not r.demo, order.get(r.kind, 9), r.name))
+    return [r.model_dump() for r in rows[:limit]]
+
+
+@app.get("/api/districts")
+def districts_list(session: Session = Depends(get_session)):
+    return sorted({d for d in session.exec(select(PHC.district)).all()})
 
 
 @app.get("/api/samples")
@@ -145,6 +160,7 @@ def reconcile(body: ReconcileIn, session: Session = Depends(get_session)):
     if not session.get(PHC, body.phc_id):
         raise HTTPException(404, "Unknown PHC")
     rec = analysis.reconcile(session, body.phc_id, body.rows)
+    stock.save_register_truth(session, body.phc_id, body.rows)
     session.add(Submission(phc_id=body.phc_id, created=date.today().isoformat(), summary=json.dumps(rec["summary"])))
     session.commit()
     return rec
@@ -168,45 +184,119 @@ def export(body: ExportIn, session: Session = Depends(get_session)):
 
 class AlertIn(BaseModel):
     reconciliation: dict
+    languages: Optional[List[str]] = None
 
 
 @app.post("/api/alert")
 def alert(body: AlertIn):
-    return analysis.write_alert(body.reconciliation)
+    return analysis.write_alert(body.reconciliation, body.languages)
 
 
-@app.get("/api/dashboard")
-def dashboard(session: Session = Depends(get_session)):
-    """District view. Uses the seeded DVDMS belief vs a simulated register truth for each PHC."""
-    import random
-    meds = {m.code: m for m in session.exec(select(Medicine)).all()}
-    out = []
-    for p in session.exec(select(PHC)).all():
-        rng = random.Random(p.id)
-        stock = session.exec(select(DvdmsStock).where(DvdmsStock.phc_id == p.id)).all()
-        per_med = {}
-        for s in stock:
-            per_med[s.med_code] = per_med.get(s.med_code, 0) + s.qty
-        crit, phantom = 0, 0
-        worst = None
-        for code, q in per_med.items():
-            m = meds[code]
-            daily = max(1, round(m.base_daily_issue * p.load))
-            roll = rng.random()
-            factor = rng.uniform(0.03, 0.22) if roll < 0.10 else rng.uniform(0.3, 0.7) if roll < 0.30 else rng.uniform(0.85, 1.05)
-            real = int(q * factor)
-            days_real = real / daily
-            if days_real <= 7:
-                crit += 1
-                if worst is None or days_real < worst[1]:
-                    worst = (f"{m.name} {m.strength}", round(days_real, 1))
-            if q - real >= 0.4 * q:
-                phantom += 1
-        out.append({"id": p.id, "name": p.name, "block": p.block, "district": p.district,
-                    "critical": crit, "phantom": phantom, "worst": worst,
-                    "risk": "high" if crit >= 4 else "medium" if crit >= 2 else "low"})
-    out.sort(key=lambda x: -x["critical"])
-    return {"note": "Illustrative data: register truth is simulated for PHCs that have not yet scanned.", "phcs": out}
+@app.get("/api/languages")
+def languages():
+    return {"languages": [{"code": k, "name": v[0], "native": v[1]} for k, v in analysis.LANGUAGES.items()],
+            "state_defaults": analysis.STATE_LANGS}
+
+
+@app.get("/api/up/overview")
+def up_overview():
+    return stock.state_overview()
+
+
+@app.get("/api/up/districts.geojson")
+def up_geojson():
+    f = config.DATA_DIR / "up_districts.geojson"
+    if not f.exists():
+        raise HTTPException(404)
+    return FileResponse(f, media_type="application/geo+json")
+
+
+@app.get("/api/up/district/{name}")
+def up_district(name: str):
+    fac = stock.district_facilities(name)
+    if not fac:
+        raise HTTPException(404, "Unknown district")
+    a = _access()
+    acc = a.get("districts", {}).get(name)
+    catch = a.get("catchment", {})
+    fac = [{**f, "villages_served": catch.get(f["id"])} for f in fac]
+    return {"district": name, "facilities": fac, "access": acc,
+            "note": "Facility locations: OpenStreetMap. Stock is simulated for facilities that have not scanned a register."}
+
+
+@app.get("/api/facility/{fid}")
+def facility(fid: str):
+    d = stock.facility_detail(fid)
+    if not d:
+        raise HTTPException(404)
+    return d
+
+
+_ACCESS: dict = {}
+
+
+def _access() -> dict:
+    if not _ACCESS:
+        f = config.DATA_DIR / "up_access.json"
+        if f.exists():
+            _ACCESS.update(json.loads(f.read_text(encoding="utf-8")))
+    return _ACCESS
+
+
+@app.get("/api/redistribution")
+def redistribution(district: str):
+    return stock.redistribution(district)
+
+
+class DecisionIn(BaseModel):
+    transfer_id: str
+    decision: str
+    district: Optional[str] = None
+
+
+@app.post("/api/redistribution/decision")
+def redistribution_decision(body: DecisionIn):
+    if body.decision not in ("approved", "rejected", "pending"):
+        raise HTTPException(400, "decision must be approved, rejected or pending")
+    stock.decide(body.transfer_id, body.decision)
+    return {"ok": True}
+
+
+@app.get("/api/redistribution/orders")
+def redistribution_orders(district: str):
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill
+    r = stock.redistribution(district)
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Transfer orders"
+    ws.append(["Order", "Medicine", "Quantity", "Unit", "Batch", "Expiry", "From facility", "To facility", "Distance (km)",
+               "Indicative value (INR)", "Stock-out days avoided", "Status"])
+    for c in ws[1]:
+        c.font = Font(bold=True, color="FFFFFF")
+        c.fill = PatternFill("solid", fgColor="0F766E")
+    for t in r["transfers"]:
+        if t["decision"] != "approved":
+            continue
+        ws.append([t["id"], t["med_name"], t["qty"], t["unit"], t["batch"], t["expiry"], t["from"]["name"], t["to"]["name"],
+                   t["km"], t["value"], t["stockout_days_avoided"], "Approved by district officer"])
+    for col in ws.columns:
+        ws.column_dimensions[col[0].column_letter].width = max(12, min(40, max(len(str(c.value or "")) for c in col) + 2))
+    import io
+    buf = io.BytesIO()
+    wb.save(buf)
+    return Response(buf.getvalue(), media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    headers={"Content-Disposition": f'attachment; filename="transfer_orders_{district}.xlsx"'})
+
+
+class ChatIn(BaseModel):
+    messages: List[dict]
+    context: Optional[dict] = None
+
+
+@app.post("/api/chat")
+def chat_endpoint(body: ChatIn):
+    return chat.reply(body.messages, body.context)
 
 
 # Serve the built frontend if present

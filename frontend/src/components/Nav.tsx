@@ -5,8 +5,8 @@ import Logo from "./Logo";
 
 const links = [
   { to: "/#how", label: "How it works" },
-  { to: "/#roadmap", label: "Roadmap" },
-  { to: "/dashboard", label: "District view" },
+  { to: "/map", label: "UP Map" },
+  { to: "/redistribute", label: "Expiry transfers" },
 ];
 
 export default function Nav() {
@@ -35,7 +35,7 @@ export default function Nav() {
             Home
           </NavLink>
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className={`px-4 py-2 rounded-full font-bold text-sm ${loc.pathname + loc.hash === l.to ? "text-brand-700 bg-brand-50" : "text-muted hover:text-brand-700"}`}>
+            <Link key={l.to} to={l.to} className={`px-4 py-2 rounded-full font-bold text-sm ${(loc.pathname + loc.hash === l.to || (!l.to.includes('#') && loc.pathname === l.to)) ? "text-brand-700 bg-brand-50" : "text-muted hover:text-brand-700"}`}>
               {l.label}
             </Link>
           ))}
