@@ -66,7 +66,7 @@ const dot = (s, x, y, d, color, txt) => {
   s.background = { color: PALE };
   title(s, "Beyond one PHC: all of Uttar Pradesh");
   s.addImage({ path: shot("map_district"), x: 0.5, y: 1.3, w: 5.2, h: 2.33, shadow: shadow() });
-  s.addText("Barabanki: every DH, CHC, PHC and Health & Wellness Centre at its real location, coloured by stock risk", { x: 0.5, y: 3.7, w: 5.2, h: 0.5, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
+  s.addText("Gonda: every facility at its real location, coloured by stock risk; purple = villages more than 8 km from a PHC/CHC (1,428 in Gonda)", { x: 0.5, y: 3.7, w: 5.2, h: 0.5, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, isTextBox: true, valign: "top" });
   const stats = [["3,948", "public health facilities mapped (OpenStreetMap)"], ["75", "districts, with villages far from care"], ["84", "expiry transfers suggested in Barabanki alone"]];
   stats.forEach(([n, l], i) => {
     const y = 1.3 + i * 1.02;
@@ -101,18 +101,18 @@ const dot = (s, x, y, d, color, txt) => {
 {
   const s = pres.addSlide();
   s.background = { color: PALE };
-  title(s, "The working prototype");
-  const items = [["03_review_hard", "Review: flagged lines with reasons"], ["04_reconcile", "Reconcile: DVDMS vs the register"], ["05_sync", "Sync: bulk entry + Hindi/English alert"]];
+  title(s, "A real handwritten page, end to end");
+  const items = [["03_review_hard", "Review: the wrong Zinc total is caught in red"], ["04_reconcile", "Compare: register vs DVDMS days of stock"], ["05_sync", "Sync: DVDMS entry + alert in Urdu, Hindi, English"]];
   items.forEach(([f, cap], i) => {
     const x = 0.5 + i * 3.05;
-    s.addImage({ path: shot(f), x, y: 1.4, w: 2.85, h: 1.415, shadow: shadow() });
-    s.addText(cap, { x, y: 2.95, w: 2.85, h: 0.4, fontFace: BODY, fontSize: 12, bold: true, color: INK, margin: 0, isTextBox: true });
+    s.addImage({ path: shot(f), x, y: 1.4, w: 2.85, sizing: { type: "contain", w: 2.85, h: 1.6 }, h: 1.6, shadow: shadow() });
+    s.addText(cap, { x, y: 3.08, w: 2.85, h: 0.4, fontFace: BODY, fontSize: 12, bold: true, color: INK, margin: 0, isTextBox: true });
   });
   s.addText([
     { text: "Live end to end: ", options: { bold: true, color: TEAL } },
-    { text: "photo upload or sample page, image clean-up, Gemini read, review, reconcile, Excel export, Hindi/English alert, district view.", options: { color: MUTED } },
+    { text: "our own handwritten page in Hindi + English, with Hindi numerals and a crossed-out value. Gemini read all 10 lines correctly, the planted Zinc error was caught, and 54 → 45 was understood as a correction.", options: { color: MUTED } },
   ], { x: 0.5, y: 3.75, w: 9, h: 0.8, fontFace: BODY, fontSize: 14, margin: 0, isTextBox: true, valign: "top" });
-  s.addText("React + FastAPI + Gemini API · built for a PC browser first", { x: 0.5, y: 4.85, w: 9, h: 0.3, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, isTextBox: true });
+  s.addText("React + FastAPI + Gemini API on Cloud Run · works on PC and as an installable phone app", { x: 0.5, y: 4.85, w: 9, h: 0.3, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, isTextBox: true });
   s.addNotes("This is the working prototype, not a mock-up. Left: the review screen, where flagged lines carry a plain-language reason. Middle: DVDMS versus the register with days of stock. Right: the bulk-entry download and the alert. Sample data is synthetic and labelled as such.");
 }
 

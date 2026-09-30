@@ -102,11 +102,11 @@ function Capture({ phcs, phc, setPhc, districts, district, setDistrict, onFile, 
           </div>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-          {samples.slice(0, 12).map((s) => (
+          {samples.slice(0, 18).map((s) => (
             <button key={s.name} onClick={() => onSample(s.name)} className="group relative rounded-2xl overflow-hidden border border-line bg-brand-50 aspect-[3/4] hover:shadow-pop hover:-translate-y-1 transition-all">
               <img src={s.thumb} alt={s.name} loading="lazy" className="h-full w-full object-cover object-top" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent text-white text-[11px] font-bold p-1.5 text-left">
-                {s.name.replace(/\.jpg|\.png/g, "").replace("reg_", "Page ").replace("_", " · ")}
+                {s.name.startsWith("handwritten") ? "★ Real handwritten page" : s.name.replace(/\.jpg|\.png/g, "").replace("reg_", "Page ").replace("messy_", "Messy ").replace("_", " · ")}
               </span>
             </button>
           ))}
