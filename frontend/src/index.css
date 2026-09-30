@@ -76,8 +76,8 @@ table.reg td { padding: .35rem .4rem; border-top: 1px solid var(--color-line); v
 .cell-input { width: 100%; border: 1.5px solid transparent; background: transparent; border-radius: .6rem; padding: .35rem .5rem; font: inherit; font-weight: 600; }
 .cell-input:hover { background: #f3faf8; }
 .cell-input:focus { outline: none; border-color: var(--color-brand-400); background: white; }
-.cell-low { background: #fff6e3; border-color: #f7d99b; }
-.cell-err { background: #ffecec; border-color: #f5b3b5; }
+.cell-low { background: #fff6e3; border-color: #f0c46b; border-width: 2px; }
+.cell-err { background: #ffecec; border-color: #e5484d; border-width: 2px; color: #b4232a; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
