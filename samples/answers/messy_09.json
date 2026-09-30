@@ -1,0 +1,125 @@
+{
+ "file": "messy_09.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Banki",
+ "phc_id": "P09",
+ "page_date": "2026-09-20",
+ "rows": [
+  {
+   "med_code": "M014",
+   "written_name": "Pan 40",
+   "batch": "WW3458",
+   "expiry": "2028-04",
+   "opening": 2306,
+   "received": 454,
+   "issued": 73,
+   "closing": 2687
+  },
+  {
+   "med_code": "M008",
+   "written_name": "एटेनोलोल",
+   "batch": "VM3675",
+   "expiry": "2028-07",
+   "opening": 1325,
+   "received": 764,
+   "issued": 80,
+   "closing": 2009
+  },
+  {
+   "med_code": "M028",
+   "written_name": "कोट्रिमोक्साजोल",
+   "batch": "NK1903",
+   "expiry": "2026-12",
+   "opening": 462,
+   "received": 0,
+   "issued": 35,
+   "closing": 427
+  },
+  {
+   "med_code": "M016",
+   "written_name": "Voveran",
+   "batch": "KB7172",
+   "expiry": "2028-01",
+   "opening": 2843,
+   "received": 0,
+   "issued": 82,
+   "closing": 2761
+  },
+  {
+   "med_code": "M002",
+   "written_name": "Oral Rehydration Salts",
+   "batch": "JE1840",
+   "expiry": "2027-01",
+   "opening": 528,
+   "received": 717,
+   "issued": 29,
+   "closing": 1216
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losar",
+   "batch": "SR9557",
+   "expiry": "2027-04",
+   "opening": 939,
+   "received": 0,
+   "issued": 54,
+   "closing": 885
+  },
+  {
+   "med_code": "M025",
+   "written_name": "Povidone Iodine",
+   "batch": "GK5812",
+   "expiry": "2028-01",
+   "opening": 35,
+   "received": 40,
+   "issued": 3,
+   "closing": 72
+  },
+  {
+   "med_code": "M003",
+   "written_name": "Amoxicillin",
+   "batch": "JW1548",
+   "expiry": "2028-02",
+   "opening": 1009,
+   "received": 0,
+   "issued": 104,
+   "closing": 905
+  },
+  {
+   "med_code": "M020",
+   "written_name": "कैल्शियम",
+   "batch": "AS7942",
+   "expiry": "2027-03",
+   "opening": 4650,
+   "received": 1213,
+   "issued": 129,
+   "closing": 5734
+  },
+  {
+   "med_code": "M004",
+   "written_name": "Azithro",
+   "batch": "PK3363",
+   "expiry": "2027-04",
+   "opening": 269,
+   "received": 192,
+   "issued": 25,
+   "closing": 436
+  },
+  {
+   "med_code": "M013",
+   "written_name": "रैनिटिडीन",
+   "batch": "RD8965",
+   "expiry": "2027-08",
+   "opening": 1121,
+   "received": 593,
+   "issued": 63,
+   "closing": 1651
+  }
+ ],
+ "features": {
+  "layout": "ruled",
+  "hindi_digits": false,
+  "blank_word": "-",
+  "corrections": 2
+ }
+}

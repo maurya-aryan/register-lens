@@ -82,3 +82,6 @@ table.reg td { padding: .35rem .4rem; border-top: 1px solid var(--color-line); v
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+.tiles-soft { filter: saturate(0.45) brightness(1.06) contrast(0.92); }
+.leaflet-container { font-family: var(--font-sans); background: #eef5f3; }

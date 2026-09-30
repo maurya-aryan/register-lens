@@ -122,8 +122,7 @@ export default function MapPage() {
       <div className="grid lg:grid-cols-[1fr_340px] gap-4">
         <div className="relative card overflow-hidden h-[70vh] min-h-[520px]">
           <MapContainer bounds={UP_BOUNDS} className="h-full w-full" preferCanvas zoomSnap={0.25} scrollWheelZoom>
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' />
+            <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" className="tiles-soft" maxZoom={19} attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
             <FitTo bounds={bounds} />
             {geo && ov && (
               <GeoJSON key={`g-${district ?? "all"}-${ov.totals.facilities}`} data={geo}

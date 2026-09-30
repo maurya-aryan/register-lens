@@ -214,5 +214,185 @@
    "rows_row_exact": 14
   },
   "model": "gemini-3-flash-preview"
+ },
+ "messy_01": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 13,
+   "batch": 4,
+   "expiry": 10,
+   "qty": 50,
+   "rows_row_exact": 3
+  },
+  "tot": {
+   "name": 13,
+   "batch": 13,
+   "expiry": 13,
+   "qty": 52,
+   "rows_row_exact": 13
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_02": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 9,
+   "batch": 3,
+   "expiry": 7,
+   "qty": 28,
+   "rows_row_exact": 1
+  },
+  "tot": {
+   "name": 9,
+   "batch": 9,
+   "expiry": 9,
+   "qty": 36,
+   "rows_row_exact": 9
+  },
+  "model": "gemini-3.5-flash"
+ },
+ "messy_03": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 13,
+   "batch": 1,
+   "expiry": 5,
+   "qty": 48,
+   "rows_row_exact": 0
+  },
+  "tot": {
+   "name": 13,
+   "batch": 13,
+   "expiry": 13,
+   "qty": 52,
+   "rows_row_exact": 13
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_04": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 9,
+   "batch": 7,
+   "expiry": 7,
+   "qty": 30,
+   "rows_row_exact": 4
+  },
+  "tot": {
+   "name": 9,
+   "batch": 9,
+   "expiry": 9,
+   "qty": 36,
+   "rows_row_exact": 9
+  },
+  "model": "gemini-3.5-flash"
+ },
+ "messy_05": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 11,
+   "batch": 9,
+   "expiry": 10,
+   "qty": 38,
+   "rows_row_exact": 6
+  },
+  "tot": {
+   "name": 11,
+   "batch": 11,
+   "expiry": 11,
+   "qty": 44,
+   "rows_row_exact": 11
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_06": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 12,
+   "batch": 2,
+   "expiry": 7,
+   "qty": 48,
+   "rows_row_exact": 1
+  },
+  "tot": {
+   "name": 12,
+   "batch": 12,
+   "expiry": 12,
+   "qty": 48,
+   "rows_row_exact": 12
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_07": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 11,
+   "batch": 10,
+   "expiry": 7,
+   "qty": 44,
+   "rows_row_exact": 7
+  },
+  "tot": {
+   "name": 11,
+   "batch": 11,
+   "expiry": 11,
+   "qty": 44,
+   "rows_row_exact": 11
+  },
+  "model": "gemini-3.5-flash"
+ },
+ "messy_08": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 9,
+   "batch": 8,
+   "expiry": 9,
+   "qty": 36,
+   "rows_row_exact": 8
+  },
+  "tot": {
+   "name": 9,
+   "batch": 9,
+   "expiry": 9,
+   "qty": 36,
+   "rows_row_exact": 9
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_09": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 11,
+   "batch": 11,
+   "expiry": 11,
+   "qty": 44,
+   "rows_row_exact": 11
+  },
+  "tot": {
+   "name": 11,
+   "batch": 11,
+   "expiry": 11,
+   "qty": 44,
+   "rows_row_exact": 11
+  },
+  "model": "gemini-3-flash-preview"
+ },
+ "messy_10": {
+  "difficulty": "messy",
+  "hit": {
+   "name": 11,
+   "batch": 1,
+   "expiry": 7,
+   "qty": 39,
+   "rows_row_exact": 1
+  },
+  "tot": {
+   "name": 11,
+   "batch": 11,
+   "expiry": 11,
+   "qty": 44,
+   "rows_row_exact": 11
+  },
+  "model": "gemini-3-flash-preview"
  }
 }

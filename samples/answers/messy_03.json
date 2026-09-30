@@ -1,0 +1,145 @@
+{
+ "file": "messy_03.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Nindaura",
+ "phc_id": "P03",
+ "page_date": "2026-09-27",
+ "rows": [
+  {
+   "med_code": "M015",
+   "written_name": "Salbu",
+   "batch": "NM2343",
+   "expiry": "2028-05",
+   "opening": 1183,
+   "received": 607,
+   "issued": 39,
+   "closing": 1751
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "GU2766",
+   "expiry": "2027-03",
+   "opening": 2215,
+   "received": 1231,
+   "issued": 102,
+   "closing": 3344
+  },
+  {
+   "med_code": "M023",
+   "written_name": "Glimepride",
+   "batch": "ML5737",
+   "expiry": "2026-10",
+   "opening": 1015,
+   "received": 0,
+   "issued": 42,
+   "closing": 973
+  },
+  {
+   "med_code": "M010",
+   "written_name": "एल्बेंडाजोल",
+   "batch": "PL9861",
+   "expiry": "2027-11",
+   "opening": 716,
+   "received": 0,
+   "issued": 18,
+   "closing": 698
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "UG1346",
+   "expiry": "2027-11",
+   "opening": 1774,
+   "received": 0,
+   "issued": 156,
+   "closing": 1618
+  },
+  {
+   "med_code": "M026",
+   "written_name": "Chloroquine",
+   "batch": "EB1577",
+   "expiry": "2028-09",
+   "opening": 321,
+   "received": 0,
+   "issued": 16,
+   "closing": 305
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan",
+   "batch": "GN1759",
+   "expiry": "2026-11",
+   "opening": 1746,
+   "received": 0,
+   "issued": 56,
+   "closing": 1690
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metrogyl",
+   "batch": "MA6452",
+   "expiry": "2028-01",
+   "opening": 1057,
+   "received": 1058,
+   "issued": 49,
+   "closing": 2066
+  },
+  {
+   "med_code": "M008",
+   "written_name": "एटेनोलोल",
+   "batch": "JW1880",
+   "expiry": "2028-05",
+   "opening": 905,
+   "received": 0,
+   "issued": 75,
+   "closing": 830
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "AM6797",
+   "expiry": "2028-06",
+   "opening": 835,
+   "received": 0,
+   "issued": 46,
+   "closing": 789
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "AL2437",
+   "expiry": "2027-09",
+   "opening": 2020,
+   "received": 0,
+   "issued": 48,
+   "closing": 1972
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "UR8529",
+   "expiry": "2027-12",
+   "opening": 1176,
+   "received": 0,
+   "issued": 57,
+   "closing": 1119
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium",
+   "batch": "EM4907",
+   "expiry": "2027-10",
+   "opening": 2309,
+   "received": 0,
+   "issued": 91,
+   "closing": 2218
+  }
+ ],
+ "features": {
+  "layout": "grid",
+  "hindi_digits": false,
+  "blank_word": "",
+  "corrections": 2
+ }
+}

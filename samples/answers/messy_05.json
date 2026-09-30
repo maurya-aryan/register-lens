@@ -1,0 +1,125 @@
+{
+ "file": "messy_05.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Dewa",
+ "phc_id": "P04",
+ "page_date": "2026-09-18",
+ "rows": [
+  {
+   "med_code": "M027",
+   "written_name": "ओमेप्राज़ोल",
+   "batch": "FU4166",
+   "expiry": "2027-07",
+   "opening": 1150,
+   "received": 1817,
+   "issued": 130,
+   "closing": 2837
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "JL3501",
+   "expiry": "2026-11",
+   "opening": 2666,
+   "received": 1857,
+   "issued": 75,
+   "closing": 4448
+  },
+  {
+   "med_code": "M001",
+   "written_name": "Paracetamol",
+   "batch": "NM2112",
+   "expiry": "2028-01",
+   "opening": 3037,
+   "received": 0,
+   "issued": 350,
+   "closing": 2687
+  },
+  {
+   "med_code": "M015",
+   "written_name": "Salbu",
+   "batch": "RP4609",
+   "expiry": "2028-01",
+   "opening": 724,
+   "received": 273,
+   "issued": 56,
+   "closing": 941
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Cipro",
+   "batch": "WF8524",
+   "expiry": "2027-05",
+   "opening": 1410,
+   "received": 930,
+   "issued": 81,
+   "closing": 2259
+  },
+  {
+   "med_code": "M006",
+   "written_name": "Met 500",
+   "batch": "FN3283",
+   "expiry": "2027-04",
+   "opening": 1920,
+   "received": 0,
+   "issued": 141,
+   "closing": 1779
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Avil",
+   "batch": "HR8024",
+   "expiry": "2028-01",
+   "opening": 2116,
+   "received": 0,
+   "issued": 52,
+   "closing": 2064
+  },
+  {
+   "med_code": "M022",
+   "written_name": "Doxycycline",
+   "batch": "CG2847",
+   "expiry": "2026-12",
+   "opening": 1533,
+   "received": 0,
+   "issued": 32,
+   "closing": 1501
+  },
+  {
+   "med_code": "M028",
+   "written_name": "Cotrimoxazole",
+   "batch": "VP2842",
+   "expiry": "2027-12",
+   "opening": 1377,
+   "received": 0,
+   "issued": 38,
+   "closing": 1339
+  },
+  {
+   "med_code": "M017",
+   "written_name": "Ibuprofen",
+   "batch": "ES2865",
+   "expiry": "2026-10",
+   "opening": 1592,
+   "received": 0,
+   "issued": 67,
+   "closing": 1525
+  },
+  {
+   "med_code": "M024",
+   "written_name": "Losartan 50",
+   "batch": "LE1856",
+   "expiry": "2028-02",
+   "opening": 903,
+   "received": 0,
+   "issued": 63,
+   "closing": 840
+  }
+ ],
+ "features": {
+  "layout": "ruled",
+  "hindi_digits": true,
+  "blank_word": "-",
+  "corrections": 2
+ }
+}

@@ -22,6 +22,7 @@ export default function Redistribute() {
   const [hover, setHover] = useState<string | null>(null);
   const [filter, setFilter] = useState<"all" | "pending" | "approved" | "rejected">("all");
   const [err, setErr] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => { api.districts().then(setDistricts).catch(() => undefined); }, []);
   useEffect(() => { setData(null); api.redistribution(district).then(setData).catch((e) => setErr(e.message)); }, [district]);
@@ -30,9 +31,10 @@ export default function Redistribute() {
     await api.decide(t.id, decision);
     setData((d) => d && { ...d, transfers: d.transfers.map((x) => (x.id === t.id ? { ...x, decision: decision === "pending" ? null : decision } : x)) });
   };
-  const ts = (data?.transfers ?? []).filter((t) => filter === "all" || (filter === "pending" ? !t.decision : t.decision === filter));
+  const tsAll = (data?.transfers ?? []).filter((t) => filter === "all" || (filter === "pending" ? !t.decision : t.decision === filter));
+  const ts = showAll ? tsAll : tsAll.slice(0, 25);
   const approved = (data?.transfers ?? []).filter((t) => t.decision === "approved");
-  const pts = useMemo<[number, number][]>(() => (data?.transfers ?? []).flatMap((t) => [[t.from.lat, t.from.lon], [t.to.lat, t.to.lon]] as [number, number][]), [data]);
+  const pts = useMemo<[number, number][]>(() => (data?.transfers ?? []).slice(0, 25).flatMap((t) => [[t.from.lat, t.from.lon], [t.to.lat, t.to.lon]] as [number, number][]), [data]);
 
   return (
     <div className="mx-auto max-w-[1500px] px-4 pt-5 pb-6">
@@ -61,9 +63,9 @@ export default function Redistribute() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-4">
             <div className="card overflow-hidden h-[64vh] min-h-[480px] relative">
               <MapContainer center={[26.9, 81.2]} zoom={9} className="h-full w-full" preferCanvas>
-                <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution='&copy; OpenStreetMap contributors &copy; CARTO' />
+                <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" className="tiles-soft" maxZoom={19} attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
                 <Fit pts={pts} />
-                {data.transfers.map((t) => {
+                {ts.map((t) => {
                   const on = hover === t.id;
                   const col = t.decision === "approved" ? "#2f9e6b" : t.decision === "rejected" ? "#b8c4c7" : "#f0a23b";
                   return (
@@ -74,7 +76,7 @@ export default function Redistribute() {
                     </Polyline>
                   );
                 })}
-                {data.transfers.flatMap((t) => [
+                {ts.flatMap((t) => [
                   <CircleMarker key={t.id + "f"} center={[t.from.lat, t.from.lon]} radius={6} pathOptions={{ color: "#fff", weight: 1.5, fillColor: "#e5484d", fillOpacity: 0.95 }}><Tooltip>{t.from.name}: near-expiry stock</Tooltip></CircleMarker>,
                   <CircleMarker key={t.id + "t"} center={[t.to.lat, t.to.lon]} radius={6} pathOptions={{ color: "#fff", weight: 1.5, fillColor: "#1f9d8a", fillOpacity: 0.95 }}><Tooltip>{t.to.name}: running short</Tooltip></CircleMarker>,
                 ])}
@@ -93,6 +95,7 @@ export default function Redistribute() {
               </div>
               <div className="flex-1 overflow-auto -mr-2 pr-2 space-y-2.5">
                 {ts.length === 0 && <div className="text-muted text-center py-10">No transfers in this view.</div>}
+                {!showAll && tsAll.length > 25 && <div className="text-xs font-bold text-muted px-1">Showing the 25 highest-value of {tsAll.length}. <button className="underline text-brand-700" onClick={() => setShowAll(true)}>Show all</button></div>}
                 {ts.map((t, i) => (
                   <motion.div key={t.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i, 10) * 0.03 }}
                     onMouseEnter={() => setHover(t.id)} onMouseLeave={() => setHover(null)}

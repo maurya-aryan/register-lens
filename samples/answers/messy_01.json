@@ -1,0 +1,145 @@
+{
+ "file": "messy_01.jpg",
+ "difficulty": "messy",
+ "facility": "PHC Ramnagar",
+ "phc_id": "P10",
+ "page_date": "2026-09-19",
+ "rows": [
+  {
+   "med_code": "M022",
+   "written_name": "Doxy",
+   "batch": "VV1436",
+   "expiry": "2027-09",
+   "opening": 1299,
+   "received": 0,
+   "issued": 49,
+   "closing": 1250
+  },
+  {
+   "med_code": "M005",
+   "written_name": "Cetirizine",
+   "batch": "WD3390",
+   "expiry": "2028-07",
+   "opening": 2327,
+   "received": 1101,
+   "issued": 141,
+   "closing": 3287
+  },
+  {
+   "med_code": "M025",
+   "written_name": "पोविडोन आयोडीन",
+   "batch": "NB8086",
+   "expiry": "2028-08",
+   "opening": 47,
+   "received": 0,
+   "issued": 3,
+   "closing": 44
+  },
+  {
+   "med_code": "M009",
+   "written_name": "Iron and Folic Acid",
+   "batch": "VT3806",
+   "expiry": "2028-01",
+   "opening": 8197,
+   "received": 2398,
+   "issued": 225,
+   "closing": 10370
+  },
+  {
+   "med_code": "M020",
+   "written_name": "Calcium Carbonate",
+   "batch": "VJ6142",
+   "expiry": "2027-12",
+   "opening": 4280,
+   "received": 0,
+   "issued": 128,
+   "closing": 4152
+  },
+  {
+   "med_code": "M012",
+   "written_name": "Cipro",
+   "batch": "GW1647",
+   "expiry": "2027-06",
+   "opening": 2124,
+   "received": 0,
+   "issued": 75,
+   "closing": 2049
+  },
+  {
+   "med_code": "M016",
+   "written_name": "डाइक्लोफेनाक",
+   "batch": "GK8752",
+   "expiry": "2027-05",
+   "opening": 1528,
+   "received": 0,
+   "issued": 114,
+   "closing": 1414
+  },
+  {
+   "med_code": "M011",
+   "written_name": "Metronidazole",
+   "batch": "WU9643",
+   "expiry": "2028-05",
+   "opening": 1259,
+   "received": 0,
+   "issued": 65,
+   "closing": 1194
+  },
+  {
+   "med_code": "M013",
+   "written_name": "Ranitidine",
+   "batch": "TE1206",
+   "expiry": "2027-08",
+   "opening": 1787,
+   "received": 0,
+   "issued": 84,
+   "closing": 1703
+  },
+  {
+   "med_code": "M021",
+   "written_name": "Chlorpheniramine",
+   "batch": "JC7966",
+   "expiry": "2028-04",
+   "opening": 244,
+   "received": 0,
+   "issued": 64,
+   "closing": 180
+  },
+  {
+   "med_code": "M008",
+   "written_name": "Atenolol",
+   "batch": "SW7467",
+   "expiry": "2027-09",
+   "opening": 2524,
+   "received": 0,
+   "issued": 106,
+   "closing": 2418
+  },
+  {
+   "med_code": "M019",
+   "written_name": "Vitamin A",
+   "batch": "GT5821",
+   "expiry": "2026-12",
+   "opening": 60,
+   "received": 61,
+   "issued": 4,
+   "closing": 117
+  },
+  {
+   "med_code": "M007",
+   "written_name": "एमलोडिपिन",
+   "batch": "CG2069",
+   "expiry": "2028-01",
+   "opening": 5578,
+   "received": 939,
+   "issued": 151,
+   "closing": 6366
+  }
+ ],
+ "features": {
+  "layout": "grid",
+  "hindi_digits": false,
+  "blank_word": "",
+  "corrections": 2
+ }
+}
