@@ -24,3 +24,4 @@ scripts/data/*.csv
 scripts/data/*.log
 scripts/data/*.txt
 docs/deck/render/
+.env.deploy.yaml
