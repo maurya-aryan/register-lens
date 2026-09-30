@@ -93,7 +93,7 @@ export default function ChatWidget() {
               {msgs.map((m, i) => (
                 <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap hi ${m.role === "user" ? "bg-brand-600 text-white rounded-br-md" : "bg-white border border-line rounded-bl-md"}`}>
-                    {m.text.replace(/\*\*/g, "")}
+                    {m.text.replace(/^\s*[*-]\s+/gm, "• ").replace(/\*/g, "")}
                     {m.tools && m.tools.length > 0 && (
                       <div className="mt-2 flex flex-wrap gap-1">{m.tools.map((t, k) => <span key={k} className="chip !text-[10px] bg-brand-50 text-brand-700"><Wrench size={10} /> {TOOL_LABEL[t] ?? t}</span>)}</div>
                     )}
