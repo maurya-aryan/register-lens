@@ -58,7 +58,8 @@ def districts_list(session: Session = Depends(get_session)):
 def samples():
     out = []
     stored = {f.stem for f in config.READINGS_DIR.glob("*.json")}
-    for p in sorted(config.SAMPLES_DIR.glob("*.png")) + sorted(config.SAMPLES_DIR.glob("*.jpg")):
+    rank = lambda p: (0 if p.stem.startswith("handwritten") else 1 if p.stem.startswith("reg_") else 2, p.stem)
+    for p in sorted(list(config.SAMPLES_DIR.glob("*.png")) + list(config.SAMPLES_DIR.glob("*.jpg")), key=rank):
         if stored and p.stem not in stored:
             continue  # gallery lists only pages with a stored reading (instant, no API call)
         out.append({"name": p.name, "url": f"/api/sample-image/{p.name}", "thumb": f"/api/sample-thumb/{p.name}"})
