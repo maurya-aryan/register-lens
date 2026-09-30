@@ -8,3 +8,12 @@ backend/cache
 backend/registerlens.db
 eval
 .git
+scripts/data
+scripts/fonts
+scripts/hindi
+docs
+frontend/node_modules
+.cache
+server.log
+.env.deploy.yaml
+.env
